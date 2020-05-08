@@ -24,8 +24,6 @@ export default ({ fish }) => (
           <td><img src={fish.imageLink}></img></td>
         </tr>
       </tbody>
-    </table>
-    
-    
+    </table>  
   </li>
 )

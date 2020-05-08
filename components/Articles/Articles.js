@@ -2,7 +2,6 @@ import Link from "next/link";
 import fetch from "node-fetch";
 import { useState, useEffect } from "react";
 
-
 function Articles() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,10 +30,12 @@ function Articles() {
     return (
       <ul>
         {results.map((result) => (
-          <li key={result.title}>{result.title}
-            <td><img src={result.image.square_small}></img></td>
-</li>
-          
+          <li key={result.title}>
+            {result.title}
+            <td>
+              <img src={result.image.square_small}></img>
+            </td>
+          </li>
         ))}
       </ul>
     );

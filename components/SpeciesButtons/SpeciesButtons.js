@@ -29,7 +29,7 @@ return (
 
 
     <div>
-        {this.getSpecies()}
+        {this.getSpecies}
     </div>
 
 )
