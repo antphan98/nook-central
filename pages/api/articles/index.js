@@ -6,7 +6,6 @@ export default async (req, res) => {
     {
       method: "GET",
       mode: "cors",
-      // body: JSON.stringify({}),
       headers: {
         "Access-Control-Allow-Origin": "*",
         "content-type": "application/json",

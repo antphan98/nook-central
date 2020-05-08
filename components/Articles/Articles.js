@@ -31,7 +31,10 @@ function Articles() {
     return (
       <ul>
         {results.map((result) => (
-          <li key={result.title}>{result.title}</li>
+          <li key={result.title}>{result.title}
+            <td><img src={result.image.square_small}></img></td>
+</li>
+          
         ))}
       </ul>
     );
