@@ -1,6 +1,5 @@
-import Link from "next/link";
-import fetch from "node-fetch";
-import { useState, useEffect } from "react";
+import fetch from 'node-fetch';
+import { useState, useEffect } from 'react';
 
 function Articles() {
   const [error, setError] = useState(null);
@@ -8,7 +7,7 @@ function Articles() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    fetch("/api/articles")
+    fetch('/api/articles')
       .then((res) => res.json())
       .then(
         (response) => {
