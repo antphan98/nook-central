@@ -1,15 +1,14 @@
-import useSWR from "swr";
-import { useState } from "react";
-import Characters from "../../components/Characters/Characters";
-import Header from "../../components/Header/Header";
-import Nav from "../../components/Nav/Nav";
-import Head from "next/head";
-import SpeciesButtons from "../../components/SpeciesButtons/SpeciesButtons";
+import useSWR from 'swr';
+import Characters from '../../components/Characters/Characters';
+import Header from '../../components/Header/Header';
+import Nav from '../../components/Nav/Nav';
+import Head from 'next/head';
+import SpeciesButtons from '../../components/SpeciesButtons/SpeciesButtons';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function characters() {
-  const { data, error } = useSWR("/api/characters", fetcher);
+  const { data, error } = useSWR('/api/characters', fetcher);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
@@ -18,7 +17,7 @@ export default function characters() {
   data.forEach((character) => {
     if (species.includes(character.species)) {
       return data.map((species) => {
-        return <button>{species}</button>;
+        return { species };
       });
     }
 

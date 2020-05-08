@@ -1,4 +1,4 @@
-export default ({ equipment }) => (
+export default ({ houseware }) => (
   <li>
     <table>
       <thead>
@@ -11,11 +11,11 @@ export default ({ equipment }) => (
       </thead>
       <tbody>
         <tr>
-          <td>{equipment.name}</td>
-          <td>{equipment.materials}</td>
-          <td>{equipment.obtainedFrom}</td>
+          <td>{houseware.name}</td>
+          <td>{houseware.materials}</td>
+          <td>{houseware.obtainedFrom}</td>
           <td>
-            <img src={equipment.imageLink}></img>
+            <img src={houseware.imageLink}></img>
           </td>
         </tr>
       </tbody>

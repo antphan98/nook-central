@@ -1,9 +1,5 @@
 export default ({ fossils }) => (
   <li>
-    {/* <Link href="/bugs/[id]" as={`/bugs/${bugs.name}`}>
-      <a>{bugs.name}</a>
-    </Link> */}
-
     <table>
       <thead>
         <tr>

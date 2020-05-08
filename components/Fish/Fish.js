@@ -1,11 +1,5 @@
-import Link from 'next/link'
-
 export default ({ fish }) => (
-    <li>
-    {/* <Link href="/fish/[id]" as={`/fish/${fish.name}`}>
-      <a>{fish.name}</a>
-    </Link> */}
-
+  <li>
     <table>
       <thead>
         <tr>
@@ -13,7 +7,6 @@ export default ({ fish }) => (
           <th>Price</th>
           <th>Location</th>
           <th>Image</th>
-    
         </tr>
       </thead>
       <tbody>
@@ -21,9 +14,11 @@ export default ({ fish }) => (
           <td>{fish.name}</td>
           <td>{fish.price}</td>
           <td>{fish.location}</td>
-          <td><img src={fish.imageLink}></img></td>
+          <td>
+            <img src={fish.imageLink}></img>
+          </td>
         </tr>
       </tbody>
-    </table>  
+    </table>
   </li>
-)
+);

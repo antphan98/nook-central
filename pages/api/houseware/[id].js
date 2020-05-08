@@ -1,4 +1,4 @@
-import { houseware } from "../../../../data/diys/houseware";
+import { houseware } from '../../../data/diys/houseware';
 
 export default ({ query: { id } }, res) => {
   const filtered = houseware.filter(
