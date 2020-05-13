@@ -3,7 +3,7 @@ import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
-import { Segment } from 'semantic-ui-react';
+import { Table, Container } from 'semantic-ui-react';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -23,12 +23,20 @@ export default function bug() {
       </Head>
       <Header />
       <Nav />
-      <Segment.Group horizontal>
-        <Segment>Image</Segment>
-        <Segment>Bug Name</Segment>
-        <Segment>Price</Segment>
-        <Segment>Location</Segment>
-      </Segment.Group>
+      <h1>Bugs</h1>
+      <Container>
+        <Table fixed>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Image</Table.HeaderCell>
+              <Table.HeaderCell>Time</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Price</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+        </Table>
+      </Container>
 
       {data.map((p, i) => (
         <Bugs key={i} bugs={p} />
