@@ -1,4 +1,4 @@
-import { tools } from "../../../../data/diys/tools";
+import { tools } from '../../../data/diys/tools';
 
 export default ({ query: { id } }, res) => {
   const filtered = tools.filter(

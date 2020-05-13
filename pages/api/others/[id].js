@@ -1,4 +1,4 @@
-import { others } from "../../../../data/diys/others";
+import { others } from '../../../data/diys/others';
 
 export default ({ query: { id } }, res) => {
   const filtered = others.filter(

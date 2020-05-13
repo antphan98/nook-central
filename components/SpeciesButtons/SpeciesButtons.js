@@ -1,39 +1,57 @@
-import useSWR from 'swr'
-import { Component } from "react"
-
-
-const fetcher = url => fetch(url).then(res => res.json())
-
+import { useState, useEffect } from 'react';
+import fetch from 'node-fetch';
 
 function SpeciesButtons() {
-    const { data, error } = useSWR('/api/characters', fetcher)
+  const [results, setResults] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(null);
 
-    function getSpecies() {
-    const species = [];
-    data.forEach(character => {
-        if (species.includes(character.species)) {
-            return data.map(( species ) => {
-                return <button>{species}</button>;
-            });
+  // data.forEach(character => {
+  //     if (species.includes(character.species)) {
+  //         return data.map(( species ) => {
+  //             return {species};
+  //         });
+  //     }
+
+  //     species.push(<button>character.species</button>)
+  //     console.log(character.species)
+
+  // });
+
+  useEffect(() => {
+    fetch('/api/characters')
+      .then((res) => res.json())
+      .then(
+        (response) => {
+          setIsLoaded(true);
+          setResults(response.results);
+          console.log(response.results);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
         }
+      );
+  });
 
-        species.push(<button>character.species</button>)
-        console.log(character.species)
-
-
-    });
-    }
-
-
-return (
-
-
-    <div>
-        {this.getSpecies}
-    </div>
-
-)
-
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <ul>
+        {results.map((result) => (
+          <li key={result.title}>
+            {result.title}
+            <td>
+              <img src={result.image.square_small}></img>
+            </td>
+          </li>
+        ))}
+      </ul>
+    );
+  }
 }
 
 export default SpeciesButtons;
