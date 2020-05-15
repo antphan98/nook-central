@@ -41,6 +41,14 @@ export default function bug() {
       {data.map((p, i) => (
         <Bugs key={i} bugs={p} />
       ))}
+      <style jsx global>{`
+        body {
+          background-image: url(images/acbackground.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+      `}</style>
     </div>
   );
 }

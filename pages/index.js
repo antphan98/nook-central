@@ -1,7 +1,7 @@
-import Header from "../components/Header/Header";
-import Nav from "../components/Nav/Nav";
-import Head from "next/head";
-import Articles from "../components/Articles/Articles";
+import Header from '../components/Header/Header';
+import Nav from '../components/Nav/Nav';
+import Head from 'next/head';
+import Articles from '../components/Articles/Articles';
 
 export default function Home() {
   return (
@@ -21,6 +21,7 @@ export default function Home() {
           background-image: url(images/acbackground.jpg);
           background-size: cover;
           background-repeat: no-repeat;
+          background-attachment: fixed;
         }
       `}</style>
     </div>

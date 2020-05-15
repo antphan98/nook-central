@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import { useState, useEffect } from 'react';
+import { Card, Image, Grid, Segment } from 'semantic-ui-react';
 
 function Articles() {
   const [error, setError] = useState(null);
@@ -27,16 +28,32 @@ function Articles() {
     return <div>Loading...</div>;
   } else {
     return (
-      <ul>
-        {results.map((result) => (
-          <li key={result.title}>
-            {result.title}
-            <td>
-              <img src={result.image.square_small}></img>
-            </td>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <Grid columns="equal">
+          <Grid.Row>
+            <Grid.Column>
+              {results.map((result) => (
+                <Segment key={result}>
+                  <Card>
+                    <Card.Content>
+                      <Card.Header key={result.title}>
+                        {result.title}
+                      </Card.Header>
+                      <Card.Meta>
+                        <span>Written by: {result.authors}</span>
+                      </Card.Meta>
+                      <Image
+                        key={result.image_square_small}
+                        src={result.image.square_small}
+                      />
+                    </Card.Content>
+                  </Card>
+                </Segment>
+              ))}
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
     );
   }
 }
