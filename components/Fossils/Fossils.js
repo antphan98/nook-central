@@ -1,22 +1,17 @@
+import { Container, Table } from 'semantic-ui-react';
+
 export default ({ fossils }) => (
-  <li>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Image</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{fossils.name}</td>
-          <td>{fossils.price}</td>
-          <td>
-            <img src={fossils.imageLink}></img>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <Container>
+    <Table fixed>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>{fossils.name}</Table.Cell>
+          <Table.Cell>
+            <img width="50" src={fossils.imageLink}></img>
+          </Table.Cell>
+          <Table.Cell>{fossils.price}</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  </Container>
 );
