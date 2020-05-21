@@ -40,6 +40,14 @@ export default function fossils() {
       {data.map((p, i) => (
         <Fossils key={i} fossils={p} />
       ))}
+      <style jsx global>{`
+        body {
+          background-image: url(images/acbackground.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+      `}</style>
     </div>
   );
 }

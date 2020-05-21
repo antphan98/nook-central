@@ -3,7 +3,8 @@ import Characters from '../../components/Characters/Characters';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
-import SpeciesButtons from '../../components/SpeciesButtons/SpeciesButtons';
+import { Container, Table } from 'semantic-ui-react';
+// import SpeciesButtons from '../../components/SpeciesButtons/SpeciesButtons';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -34,13 +35,36 @@ export default function characters() {
       </Head>
       <Header />
       <Nav />
-      <SpeciesButtons />
+      {/* <SpeciesButtons /> */}
 
-      <ul>
-        {data.map((p, i) => (
-          <Characters key={i} characters={p} />
-        ))}
-      </ul>
+      <h1>Characters</h1>
+      <Container>
+        <Table fixed>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Image</Table.HeaderCell>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Species</Table.HeaderCell>
+              <Table.HeaderCell>Personality</Table.HeaderCell>
+
+              <Table.HeaderCell>Birthday</Table.HeaderCell>
+              <Table.HeaderCell>Catchphrase</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+        </Table>
+      </Container>
+
+      {data.map((p, i) => (
+        <Characters key={i} characters={p} />
+      ))}
+      <style jsx global>{`
+        body {
+          background-image: url(images/acbackground.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+      `}</style>
     </div>
   );
 }

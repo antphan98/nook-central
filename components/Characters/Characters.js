@@ -1,29 +1,21 @@
-import Link from 'next/link'
+import { Container, Table } from 'semantic-ui-react';
 
 export default ({ characters }) => (
-    <li>
-    {/* <Link href="/bugs/[id]" as={`/bugs/${bugs.name}`}>
-      <a>{bugs.name}</a>
-    </Link> */}
+  <Container>
+    <Table fixed>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>
+            <img width="50" src={characters.imageLink}></img>
+          </Table.Cell>
+          <Table.Cell>{characters.name}</Table.Cell>
+          <Table.Cell>{characters.species}</Table.Cell>
+          <Table.Cell>{characters.personality}</Table.Cell>
 
-    <table>
-      <thead>
-        <tr>
-           
-          <th>Name</th>
-            <th>Personality</th>
-    
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-        <td><img src={characters.imageLink}></img></td>
-          <td>{characters.name}</td>
-          <td>{characters.personality}</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    
-  </li>
-)
+          <Table.Cell>{characters.birthday}</Table.Cell>
+          <Table.Cell>{characters.catchPhrase}</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  </Container>
+);
