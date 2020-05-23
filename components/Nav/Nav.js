@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Menu, Dropdown } from 'semantic-ui-react';
+import SigninModal from '../../components/SigninModal/SigninModal';
 
 export default class MenuExampleSecondary extends Component {
   render() {
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
     return (
       <Menu secondary>
         <Menu.Item name="home" onClick={this.handleItemClick} href="/" />
@@ -32,7 +35,9 @@ export default class MenuExampleSecondary extends Component {
           </Dropdown.Menu>
         </Dropdown>
         <Menu.Menu position="right">
-          <Menu.Item name="login" onClick={this.handleItemClick} />
+          <Menu.Item>
+            <SigninModal />
+          </Menu.Item>
           <Menu.Item name="sign up" onClick={this.handleItemClick} />
         </Menu.Menu>
       </Menu>
