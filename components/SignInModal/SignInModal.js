@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import { Button, Image, Modal, Form } from './node_modules/semantic-ui-react';
+import React from 'react';
+import { Button, Image, Modal, Form } from 'semantic-ui-react';
 
 const SignInModal = () => (
   // state = { open: false }

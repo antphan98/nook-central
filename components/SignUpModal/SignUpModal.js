@@ -1,11 +1,11 @@
-import React from './node_modules/react';
-import { Button, Image, Modal, Form } from './node_modules/semantic-ui-react';
+import React from 'react';
+import { Button, Image, Modal, Form } from 'semantic-ui-react';
 
 const SignUpModal = () => (
   <Modal trigger={<Button>Sign Up</Button>}>
     <Modal.Header>Sign Up</Modal.Header>
     <Modal.Content image>
-      <Image wrapped size="medium" src="images/isabelle.png" />
+      <Image wrapped size="medium" src="images/timtom.png" />
       <Form>
         <Form.Input
           //   error={{ content: 'Please enter your first name', pointing: 'below' }}

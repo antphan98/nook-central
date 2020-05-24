@@ -3,7 +3,8 @@ import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
-import { Table, Container } from 'semantic-ui-react';
+import { Table, Container, Button } from 'semantic-ui-react';
+import { useState } from 'react';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -12,6 +13,14 @@ export default function bug() {
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
+
+  const [bugList, setBugList] = useState(data);
+  const sortByTime = () => {
+    const sorted = bugList.sort((a, b) => {
+      return b.time - a.time;
+    });
+    setBugList(sorted);
+  };
 
   return (
     <div className="container">
@@ -37,10 +46,12 @@ export default function bug() {
           </Table.Header>
         </Table>
       </Container>
+      <Button onClick={sortByTime}>Sort By Age</Button>
 
       {data.map((p, i) => (
         <Bugs key={i} bugs={p} />
       ))}
+
       <style jsx global>{`
         body {
           background-image: url(images/acbackground.jpg);
