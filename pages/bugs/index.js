@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import _ from 'lodash';
+// import _ from 'lodash';
 import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
@@ -21,11 +21,11 @@ export default function bug() {
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
-  const sortByTime = () => {
-    const sorted = _.sortBy(bugList, ['time']);
-    setBugList(sorted);
-    console.log(sorted);
-  };
+  // const sortByTime = () => {
+  //   const sorted = _.sortBy(bugList, ['time']);
+  //   setBugList(sorted);
+  //   console.log(sorted);
+  // };
 
   const filterByLocation = (location) => {
     const filtered = data.filter((bug) => {
