@@ -13,7 +13,7 @@ const Nav = (props) => {
 
   return (
     <Menu secondary>
-      <Menu.Item name="home" onClick={this.handleItemClick} href="/" />
+      <Menu.Item name="home" href="/" />
       <Dropdown text="Collectibles" pointing className="link item">
         <Dropdown.Menu>
           <Dropdown.Header>Museum Donations</Dropdown.Header>
@@ -24,11 +24,7 @@ const Nav = (props) => {
         </Dropdown.Menu>
       </Dropdown>
 
-      <Menu.Item
-        name="characters"
-        onClick={this.handleItemClick}
-        href="/characters"
-      />
+      <Menu.Item name="characters" href="/characters" />
       <Dropdown text="DIY Recipies" pointing className="link item">
         <Dropdown.Menu>
           <Dropdown.Header>Categories</Dropdown.Header>
