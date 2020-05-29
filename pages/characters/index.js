@@ -2,7 +2,6 @@ import useSWR from 'swr';
 import Characters from '../../components/Characters/Characters';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
-import Head from 'next/head';
 import { Container, Table } from 'semantic-ui-react';
 // import SpeciesButtons from '../../components/SpeciesButtons/SpeciesButtons';
 
@@ -27,12 +26,6 @@ export default function characters() {
 
   return (
     <div className="container">
-      <Head>
-        <link
-          rel="stylesheet"
-          href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
-        />
-      </Head>
       <Header />
       <Nav />
       {/* <SpeciesButtons /> */}
