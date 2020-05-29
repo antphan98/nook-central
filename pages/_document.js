@@ -49,7 +49,7 @@ CustomDocument.propTypes = {
       emailVerified: PropTypes.bool.isRequired,
     }),
     token: PropTypes.string,
-  }).isRequired,
+  }),
 };
 
 export default CustomDocument;
