@@ -81,8 +81,6 @@ export default function withAuthUser(ComposedComponent) {
       composedInitialProps = await ComposedComponent.getInitialProps(ctx);
     }
 
-    console.log('AuthUserInfo', AuthUserInfo);
-
     return {
       ...composedInitialProps,
       AuthUserInfo,
