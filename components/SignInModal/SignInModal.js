@@ -2,17 +2,7 @@ import React from 'react';
 import { Button, Image, Modal, Form } from 'semantic-ui-react';
 
 const SignInModal = () => (
-  // state = { open: false }
-
-  // closeConfigShow = (closeOnEscape) => () => {
-  //     this.setState({ closeOnEscape, open: true })
-  // }
-
-  // close = () => this.setState({ open: false })
-
-  // const { open, closeOnEscape } = this.state
-
-  <Modal trigger={<Button>Log In</Button>}>
+  <Modal trigger={<Button>Log In/Sign Up</Button>}>
     <Modal.Header>Log In</Modal.Header>
     <Modal.Content image>
       <Image wrapped size="medium" src="images/isabelle.png" />
