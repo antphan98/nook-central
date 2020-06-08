@@ -4,7 +4,6 @@ import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
 import { Container, Table } from 'semantic-ui-react';
-// import SpeciesButtons from '../../components/SpeciesButtons/SpeciesButtons';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -35,8 +34,6 @@ export default function characters() {
       </Head>
       <Header />
       <Nav />
-      {/* <SpeciesButtons /> */}
-
       <h1>Characters</h1>
       <Container>
         <Table fixed>

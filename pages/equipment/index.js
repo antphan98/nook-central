@@ -1,13 +1,13 @@
-import useSWR from "swr";
-import Equipment from "../../components/Equipment/Equipment";
-import Header from "../../components/Header/Header";
-import Nav from "../../components/Nav/Nav";
-import Head from "next/head";
+import useSWR from 'swr';
+import Equipment from '../../components/Equipment/Equipment';
+import Header from '../../components/Header/Header';
+import Nav from '../../components/Nav/Nav';
+import Head from 'next/head';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function equipment() {
-  const { data, error } = useSWR("/api/equipment", fetcher);
+  const { data, error } = useSWR('/api/equipment', fetcher);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
@@ -27,6 +27,14 @@ export default function equipment() {
           <Equipment key={i} equipment={p} />
         ))}
       </ul>
+      <style jsx global>{`
+        body {
+          background-image: url(images/acbackground.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+      `}</style>
     </div>
   );
 }

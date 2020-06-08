@@ -27,6 +27,14 @@ export default function houseware() {
           <Houseware key={i} houseware={p} />
         ))}
       </ul>
+      <style jsx global>{`
+        body {
+          background-image: url(images/acbackground.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+      `}</style>
     </div>
   );
 }

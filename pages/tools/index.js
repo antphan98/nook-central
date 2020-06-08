@@ -27,6 +27,14 @@ export default function tools() {
           <Tools key={i} tools={p} />
         ))}
       </ul>
+      <style jsx global>{`
+        body {
+          background-image: url(images/acbackground.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+      `}</style>
     </div>
   );
 }

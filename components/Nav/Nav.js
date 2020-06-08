@@ -47,30 +47,21 @@ const Nav = (props) => {
             ) : (
               <div>
                 <p>You signed in. Email: {AuthUser.email}</p>
-                <p
-                  style={{
-                    display: 'inlinelock',
-                    color: 'blue',
-                    textDecoration: 'underline',
-                    cursor: 'pointer',
-                  }}
+                <Button
                   onClick={async () => {
                     try {
                       await logout();
-                      Router.push('/auth');
+                      Router.push('/');
                     } catch (e) {
                       console.error(e);
                     }
                   }}
                 >
                   Log out
-                </p>
+                </Button>
               </div>
             )}
           </div>
-        </Menu.Item>
-        <Menu.Item>
-          <Button href={'/auth'}>Sign In/Up</Button>
         </Menu.Item>
       </Menu.Menu>
     </Menu>
