@@ -10,7 +10,7 @@ export default function characters() {
   const { data, error } = useSWR('/api/characters', fetcher);
 
   if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data) return null;
 
   const species = [];
   data.forEach((character) => {
@@ -22,7 +22,6 @@ export default function characters() {
 
     species.push(character.species);
   });
-
   return (
     <div className="container">
       <Header />

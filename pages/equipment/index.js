@@ -10,7 +10,7 @@ export default function equipment() {
   const { data, error } = useSWR('/api/equipment', fetcher);
 
   if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
+  if (!data) return null;
 
   return (
     <div className="container">

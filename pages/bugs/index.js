@@ -3,7 +3,6 @@ import useSWR from 'swr';
 import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
-import Head from 'next/head';
 import { Table, Container, Dropdown, Menu } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 
@@ -19,15 +18,13 @@ export default function bug() {
   }, [data]);
 
   if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
 
-  const filterByLocation = (location) => {
-    const filtered = data.filter((bug) => {
-      return bug.location === location;
-    });
-
-    setBugList(filtered);
+  const resetList = () => {
+    return data;
   };
+
+  console.log(data);
+
   const filterByTime = (time) => {
     const filtered = data.filter((bug) => {
       return bug.time === time;
@@ -38,15 +35,10 @@ export default function bug() {
 
   return (
     <div className="container">
-      <Head>
-        <link
-          rel="stylesheet"
-          href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
-        />
-      </Head>
       <Header />
       <Nav />
       <h1>Bugs</h1>
+      <button onClick={() => resetList()}>Reset</button>
       <Menu vertical>
         <Dropdown item text="Categories">
           <Dropdown.Menu>
@@ -56,18 +48,6 @@ export default function bug() {
             </Dropdown.Item>
             <Dropdown.Item onClick={() => filterByTime('8 AM - 7 PM')}>
               8 AM - 7 PM
-            </Dropdown.Item>
-
-            <Dropdown.Header>Location</Dropdown.Header>
-
-            <Dropdown.Item onClick={() => filterByLocation('Flying')}>
-              Flying
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => filterByLocation('On Trees')}>
-              On Trees
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => filterByLocation('On Flowers')}>
-              On Flowers
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
