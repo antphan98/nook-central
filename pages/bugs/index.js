@@ -1,5 +1,4 @@
 import useSWR from 'swr';
-// import Search from '../../components/Search/Search';
 import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
@@ -26,14 +25,6 @@ export default function bug() {
     setBugList(results);
   }, [searchBug]);
 
-  const filterByTime = (time) => {
-    const filtered = data.filter((bug) => {
-      return bug.time === time;
-    });
-
-    setBugList(filtered);
-  };
-
   return (
     <div className="container">
       <Header />
@@ -46,19 +37,6 @@ export default function bug() {
         onChange={handleChange}
       />
 
-      <Menu vertical>
-        <Dropdown item text="Categories">
-          <Dropdown.Menu>
-            <Dropdown.Header>Time</Dropdown.Header>
-            <Dropdown.Item onClick={() => filterByTime('4 AM - 7 PM')}>
-              4 AM - 7 PM
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => filterByTime('8 AM - 7 PM')}>
-              8 AM - 7 PM
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
       <Container>
         <Table fixed>
           <Table.Header>
