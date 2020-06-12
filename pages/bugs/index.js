@@ -1,29 +1,30 @@
 import useSWR from 'swr';
-// import _ from 'lodash';
+// import Search from '../../components/Search/Search';
 import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import { Table, Container, Dropdown, Menu } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
+import { bugs } from '../../data/bugs';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function bug() {
   const { data, error } = useSWR('/api/bugs', fetcher);
-
-  const [bugList, setBugList] = useState([]);
-
-  useEffect(() => {
-    setBugList(data);
-  }, [data]);
-
   if (error) return <div>Failed to load</div>;
 
-  const resetList = () => {
-    return data;
+  const [bugList, setBugList] = useState([]);
+  const [searchBug, setSearchBug] = useState('');
+  const handleChange = (e) => {
+    setSearchBug(e.target.value);
   };
 
-  console.log(data);
+  useEffect(() => {
+    const results = bugs.filter((bug) =>
+      bug.name.toLowerCase().includes(searchBug)
+    );
+    setBugList(results);
+  }, [searchBug]);
 
   const filterByTime = (time) => {
     const filtered = data.filter((bug) => {
@@ -38,7 +39,13 @@ export default function bug() {
       <Header />
       <Nav />
       <h1>Bugs</h1>
-      <button onClick={() => resetList()}>Reset</button>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchBug}
+        onChange={handleChange}
+      />
+
       <Menu vertical>
         <Dropdown item text="Categories">
           <Dropdown.Menu>
