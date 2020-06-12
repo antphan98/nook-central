@@ -3,30 +3,29 @@ import Fossils from '../../components/Fossils/Fossils';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
-import { Table, Container, Dropdown, Menu } from 'semantic-ui-react';
+import { Table, Container } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
+import { fossils } from '../../data/fossils';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function fossils() {
-  const { data, error } = useSWR('/api/fossils', fetcher);
+export default function fossil() {
+  const { error } = useSWR('/api/fossils', fetcher);
 
   if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
 
   const [fossilList, setFossilList] = useState([]);
+  const [searchFossil, setSearchFossil] = useState('');
+  const handleChange = (e) => {
+    setSearchFossil(e.target.value);
+  };
 
   useEffect(() => {
-    setFossilList(data);
-  }, [data]);
-
-  const filterByTime = (time) => {
-    const filtered = data.filter((fossil) => {
-      return fossil.time === time;
-    });
-
-    setFossilList(filtered);
-  };
+    const results = fossils.filter((fossil) =>
+      fossil.name.toLowerCase().includes(searchFossil)
+    );
+    setFossilList(results);
+  }, [searchFossil]);
 
   return (
     <div className="container">
@@ -40,19 +39,12 @@ export default function fossils() {
       <Nav />
 
       <h1>Fossils</h1>
-      <Menu vertical>
-        <Dropdown item text="Categories">
-          <Dropdown.Menu>
-            <Dropdown.Header>Time</Dropdown.Header>
-            <Dropdown.Item onClick={() => filterByTime('9 AM - 4 PM')}>
-              9 AM - 4 PM
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => filterByTime('All day')}>
-              All Day
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchFossil}
+        onChange={handleChange}
+      />
       <Container>
         <Table fixed>
           <Table.Header>

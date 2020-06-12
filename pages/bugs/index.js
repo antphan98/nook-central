@@ -2,14 +2,14 @@ import useSWR from 'swr';
 import Bugs from '../../components/Bugs/Bugs';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
-import { Table, Container, Dropdown, Menu } from 'semantic-ui-react';
+import { Table, Container } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { bugs } from '../../data/bugs';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function bug() {
-  const { data, error } = useSWR('/api/bugs', fetcher);
+  const { error } = useSWR('/api/bugs', fetcher);
   if (error) return <div>Failed to load</div>;
 
   const [bugList, setBugList] = useState([]);

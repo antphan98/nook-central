@@ -3,30 +3,49 @@ import Characters from '../../components/Characters/Characters';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import { Container, Table } from 'semantic-ui-react';
+import { characters } from '../../data/characters';
+import { useState, useEffect } from 'react';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function characters() {
-  const { data, error } = useSWR('/api/characters', fetcher);
-
+export default function character() {
+  const { error } = useSWR('/api/characters', fetcher);
   if (error) return <div>Failed to load</div>;
-  if (!data) return null;
 
-  const species = [];
-  data.forEach((character) => {
-    if (species.includes(character.species)) {
-      return data.map((species) => {
-        return { species };
-      });
-    }
+  const [charList, setCharList] = useState([]);
+  const [searchChar, setSearchChar] = useState('');
+  const handleChange = (e) => {
+    setSearchChar(e.target.value);
+  };
 
-    species.push(character.species);
-  });
+  useEffect(() => {
+    const results = characters.filter((character) =>
+      character.name.toLowerCase().includes(searchChar)
+    );
+    setCharList(results);
+  }, [searchChar]);
+
+  // const species = [];
+  // data.forEach((character) => {
+  //   if (species.includes(character.species)) {
+  //     return data.map((species) => {
+  //       return { species };
+  //     });
+  //   }
+
+  //   species.push(character.species);
+  // });
   return (
     <div className="container">
       <Header />
       <Nav />
       <h1>Characters</h1>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchChar}
+        onChange={handleChange}
+      />
       <Container>
         <Table fixed>
           <Table.Header>
@@ -43,9 +62,8 @@ export default function characters() {
         </Table>
       </Container>
 
-      {data.map((p, i) => (
-        <Characters key={i} characters={p} />
-      ))}
+      {charList &&
+        charList.map((p, i) => <Characters key={i} characters={p} />)}
       <style jsx global>{`
         body {
           background-image: url(images/acbackground.jpg);

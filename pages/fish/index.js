@@ -1,49 +1,42 @@
 import useSWR from 'swr';
 import Fish from '../../components/Fish/Fish';
-import { Table, Container, Dropdown, Menu } from 'semantic-ui-react';
+import { Table, Container } from 'semantic-ui-react';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import { useState, useEffect } from 'react';
+import { fish } from '../../data/fish';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function fish() {
-  const { data, error } = useSWR('/api/fish', fetcher);
+export default function fishies() {
+  const { error } = useSWR('/api/fish', fetcher);
 
   if (error) return <div>Failed to load</div>;
 
   const [fishList, setFishList] = useState([]);
+  const [searchFish, setSearchFish] = useState('');
+  const handleChange = (e) => {
+    setSearchFish(e.target.value);
+  };
 
   useEffect(() => {
-    setFishList(data);
-  }, [data]);
-
-  const filterByTime = (time) => {
-    const filtered = data.filter((fish) => {
-      return fish.time === time;
-    });
-
-    setFishList(filtered);
-  };
+    const results = fish.filter((fishies) =>
+      fishies.name.toLowerCase().includes(searchFish)
+    );
+    setFishList(results);
+  }, [searchFish]);
 
   return (
     <div className="container">
       <Header />
       <Nav />
       <h1>Fish</h1>
-      <Menu vertical>
-        <Dropdown item text="Categories">
-          <Dropdown.Menu>
-            <Dropdown.Header>Time</Dropdown.Header>
-            <Dropdown.Item onClick={() => filterByTime('9 AM - 4 PM')}>
-              9 AM - 4 PM
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => filterByTime('All day')}>
-              All Day
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchFish}
+        onChange={handleChange}
+      />
       <Container>
         <Table fixed>
           <Table.Header>
