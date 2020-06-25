@@ -25,7 +25,7 @@ function Articles() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return null;
   } else {
     return (
       <div>

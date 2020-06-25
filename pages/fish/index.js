@@ -45,6 +45,8 @@ export default function fishies() {
               <Table.HeaderCell>Image</Table.HeaderCell>
               <Table.HeaderCell>Time</Table.HeaderCell>
               <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Shadow Size</Table.HeaderCell>
+
               <Table.HeaderCell>Price</Table.HeaderCell>
             </Table.Row>
           </Table.Header>

@@ -11,6 +11,8 @@ export default ({ fish }) => (
           </Table.Cell>
           <Table.Cell>{fish.time}</Table.Cell>
           <Table.Cell>{fish.location}</Table.Cell>
+          <Table.Cell>{fish.shadowSize}</Table.Cell>
+
           <Table.Cell>{fish.price}</Table.Cell>
         </Table.Row>
       </Table.Body>

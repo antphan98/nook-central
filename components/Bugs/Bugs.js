@@ -11,7 +11,10 @@ export default ({ bugs }) => (
           </Table.Cell>
           <Table.Cell>{bugs.time}</Table.Cell>
           <Table.Cell>{bugs.location}</Table.Cell>
-          <Table.Cell>{bugs.price}</Table.Cell>
+          <Table.Cell>
+            <img width="20" src="images/bells-icon.png"></img>
+            {bugs.price}
+          </Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
