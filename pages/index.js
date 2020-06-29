@@ -17,11 +17,20 @@ export default function Home() {
       <Articles />
 
       <style jsx global>{`
+        @font-face {
+          font-family: Humming;
+          src: url('font/Humming.otf') format('opentype');
+        }
+
         body {
           background-image: url(images/acbackground.jpg);
           background-size: cover;
           background-repeat: no-repeat;
           background-attachment: fixed;
+        }
+
+        * {
+          font-family: Humming !important;
         }
       `}</style>
     </div>

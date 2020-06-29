@@ -66,10 +66,7 @@ function Articles() {
                 <Grid.Column width={13}>
                   <Header>{result.title}</Header>
                   <span>Written by: {result.authors}</span>
-                  <p>
-                    Publish date:
-                    {result.publish_date}
-                  </p>
+                  <p>Publish date: {result.publish_date}</p>
                   <p>{result.deck}</p>
                 </Grid.Column>
               </Grid.Row>
