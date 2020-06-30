@@ -1,8 +1,8 @@
 import useSWR from 'swr';
-import Bugs from '../../components/Bugs/Bugs';
+import BugItem from '../../components/BugItem/BugItem';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
-import { Table, Container } from 'semantic-ui-react';
+import { Table, Container, Input } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { bugs } from '../../data/bugs';
 
@@ -25,17 +25,46 @@ export default function bug() {
     setBugList(results);
   }, [searchBug]);
 
+  console.log(bugList.length);
   return (
     <div className="container">
       <Header />
       <Nav />
       <h1>Bugs</h1>
-      <input
+      <Input
         type="text"
         placeholder="Search"
         value={searchBug}
         onChange={handleChange}
       />
+      <button
+        onClick={() => {
+          const currentMonth = new Date().getMonth();
+          const monthMap = {
+            0: 'jan',
+            1: 'feb',
+            2: 'mar',
+            3: 'apr',
+            4: 'may',
+            5: 'jun',
+            6: 'jul',
+            7: 'aug',
+            8: 'sep',
+            9: 'oct',
+            10: 'nov',
+            11: 'dec',
+          };
+          const filteredBugs = bugs.filter((b) => {
+            if (b[monthMap[currentMonth]]) {
+              return true;
+            }
+            return false;
+          });
+          setBugList(filteredBugs);
+        }}
+      >
+        Filter Month
+      </button>
 
       <Container>
         <Table fixed>
@@ -48,12 +77,18 @@ export default function bug() {
               <Table.HeaderCell>Price</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
+          <Table.Body>
+            {bugList && bugList.map((bug, i) => <BugItem key={i} bug={bug} />)}
+          </Table.Body>
         </Table>
       </Container>
 
-      {bugList && bugList.map((p, i) => <Bugs key={i} bugs={p} />)}
-
       <style jsx global>{`
+        @font-face {
+          font-family: Humming;
+          src: url('font/Humming.otf') format('opentype');
+        }
+
         body {
           background-image: url(images/acbackground.jpg);
           background-size: cover;
@@ -61,45 +96,8 @@ export default function bug() {
           background-attachment: fixed;
         }
 
-        .dropbtn {
-          background-color: #4caf50;
-          color: white;
-          padding: 16px;
-          font-size: 16px;
-          border: none;
-        }
-
-        .dropdown {
-          position: relative;
-          display: inline-block;
-        }
-
-        .dropdown-content {
-          display: none;
-          position: absolute;
-          background-color: #f1f1f1;
-          min-width: 160px;
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          z-index: 1;
-        }
-
-        .dropdown-content a {
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          display: block;
-        }
-
-        .dropdown-content a:hover {
-          background-color: #ddd;
-        }
-
-        .dropdown:hover .dropdown-content {
-          display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-          background-color: #3e8e41;
+        * {
+          font-family: Humming !important;
         }
       `}</style>
     </div>
