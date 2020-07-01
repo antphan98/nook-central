@@ -27,12 +27,6 @@ const handler = async (req, res) => {
   }
 
   if (req.method === 'POST') {
-    // req.session = {
-    //   decodedToken: {
-    //     user_id: '3K3jv5dcp1MKOGxIDSR1NYZDrGj1',
-    //   },
-    // };
-
     console.log(req.body);
     let docRef = db
       .collection('userProgress')

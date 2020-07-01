@@ -5,6 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import { Table, Container, Input } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { bugs } from '../../data/bugs';
+import fetch from 'node-fetch';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -12,6 +13,7 @@ export default function bug() {
   const { error } = useSWR('/api/bugs', fetcher);
   if (error) return <div>Failed to load</div>;
 
+  const [userProgress, setUserProgress] = useState([]);
   const [bugList, setBugList] = useState([]);
   const [searchBug, setSearchBug] = useState('');
   const handleChange = (e) => {
@@ -25,7 +27,35 @@ export default function bug() {
     setBugList(results);
   }, [searchBug]);
 
-  console.log(bugList.length);
+  useEffect(() => {
+    fetch('/api/user-progress')
+      .then((results) => results.json())
+      .then((data) => {
+        setUserProgress(data.data);
+      });
+  }, []);
+
+  const isSavedToProgress = (bugName) => {
+    // 3. Create a function `isSavedToProgress` that takes an argument "bugName" and returns a boolean. This function should see if bugName exists in userProgress.
+    // - bugName exists in userProgress, then return true. Otherwise return false.
+    // { bugs: ['Common Butterfly', 'Tiger Butterfly'] }
+    if (userProgress && userProgress.bugs) {
+      // return userProgress.bugs.includes(bugName);
+      return userProgress.bugs.some((bug) => bug === bugName);
+    }
+    return false;
+
+    // let isSaved = false;
+    // userProgress &&
+    //   userProgress.bugs &&
+    //   userProgress.bugs.forEach((bug) => {
+    //     if (bugName === bug) {
+    //       isSaved = true;
+    //     }
+    //   });
+    // return isSaved;
+  };
+
   return (
     <div className="container">
       <Header />
@@ -66,6 +96,14 @@ export default function bug() {
         Filter Month
       </button>
 
+      <button
+        onClick={() => {
+          setBugList(bugs);
+        }}
+      >
+        Show All Bugs
+      </button>
+
       <Container>
         <Table fixed>
           <Table.Header>
@@ -77,8 +115,16 @@ export default function bug() {
               <Table.HeaderCell>Price</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-          <Table.Body>
-            {bugList && bugList.map((bug, i) => <BugItem key={i} bug={bug} />)}
+          <Table.Body className="bugTable">
+            {bugList &&
+              bugList.map((bug, i) => (
+                <BugItem
+                  key={i}
+                  bug={bug}
+                  isSavedToProgress={isSavedToProgress(bug.name)}
+                  handleSelect={setUserProgress}
+                />
+              ))}
           </Table.Body>
         </Table>
       </Container>

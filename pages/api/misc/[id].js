@@ -1,4 +1,4 @@
-import { misc } from "../../../../data/diys/misc";
+import { misc } from '../../../data/diys/misc';
 
 export default ({ query: { id } }, res) => {
   const filtered = misc.filter(
