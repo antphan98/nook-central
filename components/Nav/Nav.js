@@ -12,59 +12,72 @@ const Nav = (props) => {
   const AuthUser = get(AuthUserInfo, 'AuthUser', null);
 
   return (
-    <Menu secondary>
-      <Menu.Item name="home" href="/" />
-      <Dropdown text="Collectibles" pointing className="link item">
-        <Dropdown.Menu>
-          <Dropdown.Header>Museum Donations</Dropdown.Header>
-          <Dropdown.Item href="/art">Art</Dropdown.Item>
-          <Dropdown.Item href="/bugs">Bugs</Dropdown.Item>
-          <Dropdown.Item href="/fish">Fish</Dropdown.Item>
-          <Dropdown.Item href="/fossils">Fossils</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+    <>
+      <Menu secondary>
+        <Menu.Item name="home" href="/" />
+        <Dropdown text="Collectibles" pointing className="link item">
+          <Dropdown.Menu>
+            <Dropdown.Header>Museum Donations</Dropdown.Header>
+            <Dropdown.Item href="/art">Art</Dropdown.Item>
+            <Dropdown.Item href="/bugs">Bugs</Dropdown.Item>
+            <Dropdown.Item href="/fish">Fish</Dropdown.Item>
+            <Dropdown.Item href="/fossils">Fossils</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
 
-      <Menu.Item name="characters" href="/characters" />
-      <Dropdown text="DIY Recipies" pointing className="link item">
-        <Dropdown.Menu>
-          <Dropdown.Header>Categories</Dropdown.Header>
-          <Dropdown.Item href="/equipment">Equipment</Dropdown.Item>
-          <Dropdown.Item href="/houseware">Houseware</Dropdown.Item>
-          <Dropdown.Item href="/misc">Miscellaneous</Dropdown.Item>
-          <Dropdown.Item href="/others">Others</Dropdown.Item>
-          <Dropdown.Item href="/tools">Tools</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      <Menu.Menu position="right">
-        <Menu.Item>
-          <div>
-            <p>Hi there!</p>
-            {!AuthUser ? (
-              <p>
-                You are not signed in.{' '}
-                <Button href={'/auth'}>Sign In/Up</Button>
-              </p>
-            ) : (
-              <div>
-                <p>You signed in. Email: {AuthUser.email}</p>
-                <Button
-                  onClick={async () => {
-                    try {
-                      await logout();
-                      Router.push('/');
-                    } catch (e) {
-                      console.error(e);
-                    }
-                  }}
-                >
-                  Log out
-                </Button>
-              </div>
-            )}
-          </div>
-        </Menu.Item>
-      </Menu.Menu>
-    </Menu>
+        <Menu.Item name="characters" href="/characters" />
+        <Dropdown text="DIY Recipies" pointing className="link item">
+          <Dropdown.Menu>
+            <Dropdown.Header>Categories</Dropdown.Header>
+            <Dropdown.Item href="/equipment">Equipment</Dropdown.Item>
+            <Dropdown.Item href="/houseware">Houseware</Dropdown.Item>
+            <Dropdown.Item href="/misc">Miscellaneous</Dropdown.Item>
+            <Dropdown.Item href="/others">Others</Dropdown.Item>
+            <Dropdown.Item href="/tools">Tools</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Menu.Menu position="right">
+          <Menu.Item>
+            <div>
+              <p>Hi there!</p>
+              {!AuthUser ? (
+                <p>
+                  You are not signed in.{' '}
+                  <Button href={'/auth'}>Sign In/Up</Button>
+                </p>
+              ) : (
+                <div>
+                  <p>You signed in. Email: {AuthUser.email}</p>
+                  <Button
+                    onClick={async () => {
+                      try {
+                        await logout();
+                        Router.push('/');
+                      } catch (e) {
+                        console.error(e);
+                      }
+                    }}
+                  >
+                    Log out
+                  </Button>
+                </div>
+              )}
+            </div>
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
+      <style jsx global>{`
+
+       @font-face {
+        font-family: FinkHeavy;
+        src: url('font/FinkHeavy.tff') format('truetype');
+
+        .ui.secondary.menu {
+          font-family: FinkHeavy !important;
+        }
+
+     `}</style>
+    </>
   );
 };
 

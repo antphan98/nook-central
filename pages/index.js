@@ -13,24 +13,41 @@ export default function Home() {
         />
       </Head>
       <Header />
+
       <Nav />
+
+      <div className="article-header">
+        <h1 className="article-title">Animal Crossing News</h1>
+      </div>
       <Articles />
 
       <style jsx global>{`
         @font-face {
-          font-family: Humming;
-          src: url('font/Humming.otf') format('opentype');
+          font-family: FinkHeavy;
+          src: url('font/FinkHeavy.ttf') format('truetype');
+        }
+        .article-header {
+          background-color: #55a3e3;
+          border-radius: 30px;
+          text-align: center;
+          padding: 10px;
+          margin: 10px;
+          border-color: #4b8cc2;
+          border-style: solid;
         }
 
+        .article-title {
+          color: white;
+          font-family: FinkHeavy;
+          letter-spacing: 1px;
+          font-size: 3rem;
+          text-shadow: 3px 3px #9c6858;
+        }
         body {
           background-image: url(images/acbackground.jpg);
           background-size: cover;
           background-repeat: no-repeat;
           background-attachment: fixed;
-        }
-
-        * {
-          font-family: Humming !important;
         }
       `}</style>
     </div>

@@ -31,7 +31,7 @@ function Articles() {
       <div>
         <Container>
           {results.map((result) => (
-            <Grid celled key={result} href={result.site_detail_url}>
+            <Grid key={result} href={result.site_detail_url}>
               <Grid.Row>
                 <Grid.Column width={3}>
                   <Image src={result.image.original} />
@@ -51,6 +51,22 @@ function Articles() {
             </Grid>
           ))}
         </Container>
+        <style jsx global>{`
+          @font-face {
+            font-family: Humming;
+            src: url('font/Humming.otf') format('opentype');
+          }
+
+          * {
+            font-family: Humming;
+          }
+
+          .ui.container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+          }
+        `}</style>
       </div>
     );
   }
