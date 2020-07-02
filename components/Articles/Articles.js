@@ -66,6 +66,20 @@ function Articles() {
             padding: 20px;
             border-radius: 20px;
           }
+
+          .row {
+            -moz-transition: all 0.3s ease-in;
+            -o-transition: all 0.3s ease-in;
+            -webkit-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+          }
+          .row:hover {
+            background: beige;
+          }
+
+          .ui.header {
+            font-family: Humming;
+          }
         `}</style>
       </div>
     );
