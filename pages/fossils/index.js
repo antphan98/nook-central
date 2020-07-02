@@ -1,11 +1,12 @@
 import useSWR from 'swr';
-import Fossils from '../../components/Fossils/Fossils';
+import FossilItem from '../../components/FossilItem/FossilItem';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
 import { Table, Container } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { fossils } from '../../data/fossils';
+import fetch from 'node-fetch';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -14,6 +15,7 @@ export default function fossil() {
 
   if (error) return <div>Failed to load</div>;
 
+  const [userProgress, setUserProgress] = useState([]);
   const [fossilList, setFossilList] = useState([]);
   const [searchFossil, setSearchFossil] = useState('');
   const handleChange = (e) => {
@@ -26,6 +28,26 @@ export default function fossil() {
     );
     setFossilList(results);
   }, [searchFossil]);
+
+  useEffect(() => {
+    fetch('/api/user-progress')
+      .then((results) => results.json())
+      .then((data) => {
+        setUserProgress(data.data);
+      });
+  }, []);
+
+  const isSavedToProgress = (fossilName) => {
+    let isSaved = false;
+    userProgress &&
+      userProgress.fossils &&
+      userProgress.fossils.forEach((fossil) => {
+        if (fossilName === fossil) {
+          isSaved = true;
+        }
+      });
+    return isSaved;
+  };
 
   return (
     <div className="container">
@@ -54,10 +76,20 @@ export default function fossil() {
               <Table.HeaderCell>Price</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
+
+          <Table.Body className="fossilTable">
+            {fossilList &&
+              fossilList.map((fossil, i) => (
+                <FossilItem
+                  key={i}
+                  fossil={fossil}
+                  isSavedToProgress={isSavedToProgress(fossil.name)}
+                  handleSelect={setUserProgress}
+                />
+              ))}
+          </Table.Body>
         </Table>
       </Container>
-
-      {fossilList && fossilList.map((p, i) => <Fossils key={i} fossils={p} />)}
       <style jsx global>{`
         body {
           background-image: url(images/acbackground.jpg);
