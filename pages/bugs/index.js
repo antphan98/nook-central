@@ -36,24 +36,15 @@ export default function bug() {
   }, []);
 
   const isSavedToProgress = (bugName) => {
-    // 3. Create a function `isSavedToProgress` that takes an argument "bugName" and returns a boolean. This function should see if bugName exists in userProgress.
-    // - bugName exists in userProgress, then return true. Otherwise return false.
-    // { bugs: ['Common Butterfly', 'Tiger Butterfly'] }
-    if (userProgress && userProgress.bugs) {
-      // return userProgress.bugs.includes(bugName);
-      return userProgress.bugs.some((bug) => bug === bugName);
-    }
-    return false;
-
-    // let isSaved = false;
-    // userProgress &&
-    //   userProgress.bugs &&
-    //   userProgress.bugs.forEach((bug) => {
-    //     if (bugName === bug) {
-    //       isSaved = true;
-    //     }
-    //   });
-    // return isSaved;
+    let isSaved = false;
+    userProgress &&
+      userProgress.bugs &&
+      userProgress.bugs.forEach((bug) => {
+        if (bugName === bug) {
+          isSaved = true;
+        }
+      });
+    return isSaved;
   };
 
   return (

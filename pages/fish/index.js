@@ -1,10 +1,11 @@
 import useSWR from 'swr';
-import Fish from '../../components/Fish/Fish';
+import FishItem from '../../components/FishItem/FishItem';
 import { Table, Container } from 'semantic-ui-react';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import { useState, useEffect } from 'react';
 import { fish } from '../../data/fish';
+import fetch from 'node-fetch';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -13,6 +14,7 @@ export default function fishies() {
 
   if (error) return <div>Failed to load</div>;
 
+  const [userProgress, setUserProgress] = useState([]);
   const [fishList, setFishList] = useState([]);
   const [searchFish, setSearchFish] = useState('');
   const handleChange = (e) => {
@@ -25,6 +27,26 @@ export default function fishies() {
     );
     setFishList(results);
   }, [searchFish]);
+
+  useEffect(() => {
+    fetch('/api/user-progress')
+      .then((results) => results.json())
+      .then((data) => {
+        setUserProgress(data.data);
+      });
+  }, []);
+
+  const isSavedToProgress = (fishName) => {
+    let isSaved = false;
+    userProgress &&
+      userProgress.fish &&
+      userProgress.fish.forEach((fishies) => {
+        if (fishName === fishies) {
+          isSaved = true;
+        }
+      });
+    return isSaved;
+  };
 
   return (
     <div className="container">
@@ -50,10 +72,20 @@ export default function fishies() {
               <Table.HeaderCell>Price</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
+          <Table.Body className="fishTable">
+            {fishList &&
+              fishList.map((fishies, i) => (
+                <FishItem
+                  key={i}
+                  fishies={fishies}
+                  isSavedToProgress={isSavedToProgress(fishies.name)}
+                  handleSelect={setUserProgress}
+                />
+              ))}
+          </Table.Body>
         </Table>
       </Container>
 
-      {fishList && fishList.map((p, i) => <Fish key={i} fish={p} />)}
       <style jsx global>{`
         body {
           background-image: url(images/acbackground.jpg);

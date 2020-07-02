@@ -31,8 +31,7 @@ const handler = async (req, res) => {
     let docRef = db
       .collection('userProgress')
       .doc(req.session.decodedToken.user_id);
-
-    docRef.set(JSON.parse(req.body));
+    docRef.set(JSON.parse(req.body), { merge: true });
     res.status(200).json({ status: true });
   }
 };
