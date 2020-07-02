@@ -1,10 +1,11 @@
 import useSWR from 'swr';
-import Art from '../../components/Art/Art';
+import ArtItem from '../../components/ArtItem/ArtItem';
 import Header from '../../components/Header/Header';
 import Nav from '../../components/Nav/Nav';
 import { Container, Table, Input } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { art } from '../../data/art';
+import fetch from 'node-fetch';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -13,6 +14,7 @@ export default function arts() {
 
   if (error) return <div>Failed to load</div>;
 
+  const [userProgress, setUserProgress] = useState([]);
   const [artList, setArtList] = useState([]);
   const [searchArt, setSearchArt] = useState('');
   const handleChange = (e) => {
@@ -25,6 +27,27 @@ export default function arts() {
     );
     setArtList(results);
   }, [searchArt]);
+
+  useEffect(() => {
+    fetch('/api/user-progress')
+      .then((results) => results.json())
+      .then((data) => {
+        setUserProgress(data.data);
+      });
+  }, []);
+
+  const isSavedToProgress = (artName) => {
+    let isSaved = false;
+    userProgress &&
+      userProgress.art &&
+      userProgress.art.forEach((arts) => {
+        if (artName === arts) {
+          isSaved = true;
+        }
+      });
+
+    return isSaved;
+  };
 
   return (
     <div className="container">
@@ -50,10 +73,19 @@ export default function arts() {
               <Table.HeaderCell>Selling Price</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
+          <Table.Body className="artTable">
+            {artList &&
+              artList.map((arts, i) => (
+                <ArtItem
+                  key={i}
+                  arts={arts}
+                  isSavedToProgress={isSavedToProgress(arts.name)}
+                  handleSelect={setUserProgress}
+                />
+              ))}
+          </Table.Body>
         </Table>
       </Container>
-
-      {artList && artList.map((p, i) => <Art key={i} art={p} />)}
 
       <style jsx global>{`
         body {

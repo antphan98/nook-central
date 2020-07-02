@@ -1,37 +1,34 @@
 import { Table } from 'semantic-ui-react';
-import fetch from 'node-fetch';
 import _ from 'lodash';
+import fetch from 'node-fetch';
 
 export default (props) => {
-  const { fishies, isSavedToProgress, handleSelect } = props;
-  console.log(fishies);
-
+  const { arts, isSavedToProgress, handleSelect } = props;
   return (
     <>
       <Table.Row
         className={isSavedToProgress ? 'is-saved' : null}
         onClick={async () => {
-          console.log(fishies);
           const response = await fetch('/api/user-progress');
           const userProgress = await response.json();
           let requestBody;
-          if (userProgress.data && userProgress.data.fish) {
-            let fishMatch = false;
-            userProgress.data.fish.map((fishName) => {
-              if (fishName === fishies.name) {
-                fishMatch = true;
+          if (userProgress.data && userProgress.data.art) {
+            let artMatch = false;
+            userProgress.data.art.map((artName) => {
+              if (artName === arts.name) {
+                artMatch = true;
               }
             });
-            if (fishMatch) {
-              const filteredFish = userProgress.data.fish.filter((fishName) => {
-                return fishName !== fishies.name;
+            if (artMatch) {
+              const filteredArt = userProgress.data.art.filter((artName) => {
+                return artName !== arts.name;
               });
-              requestBody = { fish: filteredFish };
+              requestBody = { art: filteredArt };
             } else {
-              requestBody = { fish: [...userProgress.data.fish, fishies.name] };
+              requestBody = { art: [...userProgress.data.art, arts.name] };
             }
           } else {
-            requestBody = { fish: [fishies.name] };
+            requestBody = { art: [arts.name] };
           }
           console.log(requestBody);
 
@@ -51,15 +48,14 @@ export default (props) => {
           handleSelect(requestBody);
         }}
       >
-        <Table.Cell>{_.startCase(_.toLower(fishies.name))}</Table.Cell>
         <Table.Cell>
-          <img width="50" src={fishies.imageLink}></img>
+          <img src={arts.image_uri}></img>
         </Table.Cell>
-        <Table.Cell>{fishies.time}</Table.Cell>
-        <Table.Cell>{fishies.location}</Table.Cell>
-        <Table.Cell>{fishies.shadowSize}</Table.Cell>
+        <Table.Cell>{_.startCase(_.toLower(arts.name))}</Table.Cell>
+        <Table.Cell>{arts.desc}</Table.Cell>
 
-        <Table.Cell>{fishies.price}</Table.Cell>
+        <Table.Cell>{arts.buy_price}</Table.Cell>
+        <Table.Cell>{arts.sell_price}</Table.Cell>
       </Table.Row>
       <style jsx global>{`
         tr:hover {
