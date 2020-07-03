@@ -61,10 +61,11 @@ const BugItem = (props) => {
           handleSelect(requestBody);
         }}
       >
-        <Table.Cell>{bug.name}</Table.Cell>
         <Table.Cell>
-          <img width="60" src={bug.imageLink}></img>
+          <img width="65" src={bug.imageLink}></img>
         </Table.Cell>
+        <Table.Cell>{bug.name}</Table.Cell>
+
         <Table.Cell>{bug.time}</Table.Cell>
         <Table.Cell>{bug.location}</Table.Cell>
         <Table.Cell>

@@ -15,7 +15,11 @@ export default function Home() {
       <Header />
 
       <div className="article-header">
-        <h1 className="article-title">Animal Crossing News</h1>
+        <h1 className="article-title">
+          <img src="images/nooks.png" width="50"></img>
+          &nbsp; Animal Crossing News &nbsp;
+          <img src="images/nooks.png" width="50"></img>
+        </h1>
       </div>
       <Articles />
 
@@ -40,6 +44,9 @@ export default function Home() {
           letter-spacing: 1px;
           font-size: 3rem;
           text-shadow: 3px 3px #9c6858;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         body {
           background-image: url(images/acbackground.jpg);

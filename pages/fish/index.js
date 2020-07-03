@@ -1,8 +1,7 @@
 import useSWR from 'swr';
 import FishItem from '../../components/FishItem/FishItem';
-import { Table, Container } from 'semantic-ui-react';
+import { Table, Container, Input } from 'semantic-ui-react';
 import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
 import { useState, useEffect } from 'react';
 import { fish } from '../../data/fish';
 import fetch from 'node-fetch';
@@ -51,9 +50,10 @@ export default function fishies() {
   return (
     <div className="container">
       <Header />
-      <Nav />
-      <h1>Fish</h1>
-      <input
+      <div className="fish-header">
+        <h1 className="fish-title">Fish</h1>
+      </div>
+      <Input
         type="text"
         placeholder="Search"
         value={searchFish}
@@ -61,17 +61,6 @@ export default function fishies() {
       />
       <Container>
         <Table fixed>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Image</Table.HeaderCell>
-              <Table.HeaderCell>Time</Table.HeaderCell>
-              <Table.HeaderCell>Location</Table.HeaderCell>
-              <Table.HeaderCell>Shadow Size</Table.HeaderCell>
-
-              <Table.HeaderCell>Price</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
           <Table.Body className="fishTable">
             {fishList &&
               fishList.map((fishies, i) => (
@@ -92,6 +81,22 @@ export default function fishies() {
           background-size: cover;
           background-repeat: no-repeat;
           background-attachment: fixed;
+        }
+        .fish-header {
+          background-color: #55a3e3;
+          border-radius: 30px;
+          text-align: center;
+          padding: 10px;
+          margin: 10px;
+          border-color: #4b8cc2;
+          border-style: solid;
+        }
+        .fish-title {
+          color: white;
+          font-family: FinkHeavy;
+          letter-spacing: 1px;
+          font-size: 3rem;
+          text-shadow: 3px 3px #9c6858;
         }
       `}</style>
     </div>

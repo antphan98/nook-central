@@ -67,8 +67,16 @@ export default (props) => {
         }
 
         .is-saved {
-          background-color: pink;
+          background-image: url(images/wood.jpg);
         }
+        .ui.table tr td,
+        .ui.table {
+          border-top: none;
+          border: none;
+        }
+
+        .ui.table {
+          border-radius: 20px;
       `}</style>
     </>
   );
