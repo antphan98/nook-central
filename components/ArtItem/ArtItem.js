@@ -54,8 +54,11 @@ export default (props) => {
         <Table.Cell>{_.startCase(_.toLower(arts.name))}</Table.Cell>
         <Table.Cell>{arts.desc}</Table.Cell>
 
-        <Table.Cell>{arts.buy_price}</Table.Cell>
-        <Table.Cell>{arts.sell_price}</Table.Cell>
+        <Table.Cell>
+          {' '}
+          <img width="20" src="images/bells-icon.png"></img>
+          &nbsp;{arts.buy_price}
+        </Table.Cell>
       </Table.Row>
       <style jsx global>{`
         tr:hover {
@@ -63,7 +66,17 @@ export default (props) => {
         }
 
         .is-saved {
-          background-color: pink;
+          background-image: url(images/wood.jpg);
+        }
+
+        .ui.table tr td,
+        .ui.table {
+          border-top: none;
+          border: none;
+        }
+
+        .ui.table {
+          border-radius: 20px;
         }
       `}</style>
     </>

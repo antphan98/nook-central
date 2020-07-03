@@ -69,7 +69,7 @@ const BugItem = (props) => {
         <Table.Cell>{bug.location}</Table.Cell>
         <Table.Cell>
           <img width="20" src="images/bells-icon.png"></img>
-          {bug.price}
+          &nbsp; {bug.price}
         </Table.Cell>
       </Table.Row>
 
