@@ -17,7 +17,7 @@ const BugItem = (props) => {
         onClick={async () => {
           const AuthUser = get(AuthUserInfo, 'AuthUser', null);
           {
-            !AuthUser ? alert('Please login to track your progress!') : null;
+            !AuthUser ? alert('Please sign in to start collecting!') : null;
           }
 
           const response = await fetch('/api/user-progress');
@@ -63,7 +63,7 @@ const BugItem = (props) => {
       >
         <Table.Cell>{bug.name}</Table.Cell>
         <Table.Cell>
-          <img width="50" src={bug.imageLink}></img>
+          <img width="60" src={bug.imageLink}></img>
         </Table.Cell>
         <Table.Cell>{bug.time}</Table.Cell>
         <Table.Cell>{bug.location}</Table.Cell>
@@ -72,13 +72,23 @@ const BugItem = (props) => {
           {bug.price}
         </Table.Cell>
       </Table.Row>
+
       <style jsx global>{`
         tr:hover {
           background-color: beige;
         }
 
         .is-saved {
-          background-color: pink;
+          background-image: url(images/wood.jpg);
+        }
+        .ui.table tr td,
+        .ui.table {
+          border-top: none;
+          border: none;
+        }
+
+        .ui.table {
+          border-radius: 20px;
         }
       `}</style>
     </>

@@ -1,6 +1,5 @@
 import useSWR from 'swr';
 import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
 import Head from 'next/head';
 import Articles from '../../components/Articles/Articles';
 
@@ -24,7 +23,6 @@ export default function article() {
         />
       </Head>
       <Header />
-      <Nav />
       <ul>
         {data.map((p, i) => (
           <Articles key={i} articles={p} />

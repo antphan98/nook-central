@@ -170,7 +170,7 @@ const Nav = (props) => {
         }
 
         .login {
-          background-color: #cc9067;
+          background-image: url(images/wood.jpg);
           border-radius: 25px;
           padding: 10px;
           color: white;

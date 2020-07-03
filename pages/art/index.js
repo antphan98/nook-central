@@ -1,7 +1,6 @@
 import useSWR from 'swr';
 import ArtItem from '../../components/ArtItem/ArtItem';
 import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
 import { Container, Table, Input } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { art } from '../../data/art';
@@ -52,7 +51,6 @@ export default function arts() {
   return (
     <div className="container">
       <Header />
-      <Nav />
 
       <Input
         type="text"

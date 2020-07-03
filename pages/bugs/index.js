@@ -49,61 +49,59 @@ export default function bug() {
   return (
     <div className="container">
       <Header />
-      <h1>Bugs</h1>
-      <Input
-        type="text"
-        placeholder="Search"
-        value={searchBug}
-        onChange={handleChange}
-      />
-      <button
-        onClick={() => {
-          const currentMonth = new Date().getMonth();
-          const monthMap = {
-            0: 'jan',
-            1: 'feb',
-            2: 'mar',
-            3: 'apr',
-            4: 'may',
-            5: 'jun',
-            6: 'jul',
-            7: 'aug',
-            8: 'sep',
-            9: 'oct',
-            10: 'nov',
-            11: 'dec',
-          };
-          const filteredBugs = bugs.filter((b) => {
-            if (b[monthMap[currentMonth]]) {
-              return true;
-            }
-            return false;
-          });
-          setBugList(filteredBugs);
-        }}
-      >
-        Filter Month
-      </button>
+      <div className="bugs-header">
+        <h1 className="bugs-title">Bugs</h1>
+      </div>
+      <div className="bug-search">
+        <Input
+          className="search"
+          type="text"
+          placeholder="Search For Bug..."
+          value={searchBug}
+          onChange={handleChange}
+        />
 
-      <button
-        onClick={() => {
-          setBugList(bugs);
-        }}
-      >
-        Show All Bugs
-      </button>
+        <button
+          className="filter-month-btn"
+          onClick={() => {
+            const currentMonth = new Date().getMonth();
+            const monthMap = {
+              0: 'jan',
+              1: 'feb',
+              2: 'mar',
+              3: 'apr',
+              4: 'may',
+              5: 'jun',
+              6: 'jul',
+              7: 'aug',
+              8: 'sep',
+              9: 'oct',
+              10: 'nov',
+              11: 'dec',
+            };
+            const filteredBugs = bugs.filter((b) => {
+              if (b[monthMap[currentMonth]]) {
+                return true;
+              }
+              return false;
+            });
+            setBugList(filteredBugs);
+          }}
+        >
+          Bugs Available This Month
+        </button>
 
+        <button
+          className="show-all-btn"
+          onClick={() => {
+            setBugList(bugs);
+          }}
+        >
+          Show All Bugs
+        </button>
+      </div>
       <Container>
         <Table fixed>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Image</Table.HeaderCell>
-              <Table.HeaderCell>Time</Table.HeaderCell>
-              <Table.HeaderCell>Location</Table.HeaderCell>
-              <Table.HeaderCell>Price</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
           <Table.Body className="bugTable">
             {bugList &&
               bugList.map((bug, i) => (
@@ -120,6 +118,10 @@ export default function bug() {
 
       <style jsx global>{`
         @font-face {
+          font-family: FinkHeavy;
+          src: url(fonts/FinkHeavy.otf) format('opentype');
+        }
+        @font-face {
           font-family: Humming;
           src: url('fonts/Humming.otf') format('opentype');
         }
@@ -131,8 +133,72 @@ export default function bug() {
           background-attachment: fixed;
         }
 
-        * {
-          font-family: Humming !important;
+        .ui.fixed.table {
+          font-family: Humming;
+          opacity: 0.9;
+        }
+
+        .bugs-header {
+          background-color: #55a3e3;
+          border-radius: 30px;
+          text-align: center;
+          padding: 10px;
+          margin: 10px;
+          border-color: #4b8cc2;
+          border-style: solid;
+        }
+        .bugs-title {
+          color: white;
+          font-family: FinkHeavy;
+          letter-spacing: 1px;
+          font-size: 3rem;
+          text-shadow: 3px 3px #9c6858;
+        }
+
+        .filter-month-btn,
+        .show-all-btn {
+          background-color: #e6dc81;
+          border-radius: 25px;
+          padding: 10px;
+          border-color: brown;
+          border-style: solid;
+          border-width: 0 3px 3px 0;
+          box-shadow: 1px 5px #888888;
+          font-size: 1.5rem;
+          color: white;
+          font-family: FinkHeavy;
+          margin: 20px;
+        }
+
+        .filter-month-btn:hover,
+        .show-all-btn:hover {
+          transform: scale(0.95) !important;
+          box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
+          z-index: 999;
+        }
+
+        .bug-search {
+          text-align: center;
+          margin: 15px;
+        }
+
+        .search {
+          border-radius: 25px;
+          padding: 10px;
+          border-color: brown;
+          border-style: solid;
+          border-width: 0 3px 3px 0;
+          box-shadow: 1px 5px #888888;
+          font-size: 1.5rem;
+          color: white;
+          font-family: FinkHeavy;
+          margin: 20px;
+          background-image: url(images/wood.jpg);
+        }
+        .ui.input > input {
+          border-radius: 20px;
+          border: none;
+          font-family: Humming;
         }
       `}</style>
     </div>
