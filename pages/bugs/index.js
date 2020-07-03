@@ -1,7 +1,6 @@
 import useSWR from 'swr';
 import BugItem from '../../components/BugItem/BugItem';
 import Header from '../../components/Header/Header';
-import Nav from '../../components/Nav/Nav';
 import { Table, Container, Input } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { bugs } from '../../data/bugs';
@@ -50,7 +49,6 @@ export default function bug() {
   return (
     <div className="container">
       <Header />
-      <Nav />
       <h1>Bugs</h1>
       <Input
         type="text"
@@ -123,7 +121,7 @@ export default function bug() {
       <style jsx global>{`
         @font-face {
           font-family: Humming;
-          src: url('font/Humming.otf') format('opentype');
+          src: url('fonts/Humming.otf') format('opentype');
         }
 
         body {

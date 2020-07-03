@@ -74,20 +74,20 @@ const Nav = (props) => {
         </Menu.Item>
       </Menu>
       <style jsx global>{`
-
-       @font-face {
-        font-family: FinkHeavy;
-        src: url('font/FinkHeavy.tff') format('truetype');
+        @font-face {
+          font-family: FinkHeavy;
+          src: url(fonts/FinkHeavy.otf) format('opentype');
+        }
 
         .ui.secondary.menu {
           font-family: FinkHeavy !important;
         }
 
-        .home-btn {
-          background-color:#539e0e !important;
+        .ui.secondary.menu .item.home-btn {
+          background-color: #539e0e;
           border-radius: 25px !important;
           padding: 12px !important;
-          border-color: brown!important;
+          border-color: brown !important;
           border-style: solid !important;
           border-width: 0 3px 3px 0 !important;
           box-shadow: 1px 5px #888888 !important;
@@ -95,15 +95,17 @@ const Nav = (props) => {
           color: white !important;
         }
 
-        .home-btn:hover, .collectibles-btn:hover, .characters-btn:hover, .diy-btn:hover{
+        .home-btn:hover,
+        .collectibles-btn:hover,
+        .characters-btn:hover,
+        .diy-btn:hover {
           transform: scale(0.95) !important;
-          box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important; 
-          z-index:999;
-
+          box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
+          z-index: 999;
         }
 
         .collectibles-btn {
-          background-color:pink !important;
+          background-color: pink !important;
           border-radius: 25px !important;
           padding: 12px !important;
           border-color: brown !important;
@@ -115,7 +117,7 @@ const Nav = (props) => {
         }
 
         .characters-btn {
-          background-color:#f09b51 !important;
+          background-color: #f09b51 !important;
           border-radius: 25px !important;
           padding: 12px !important;
           border-color: brown !important;
@@ -125,9 +127,9 @@ const Nav = (props) => {
           font-size: 1.5rem;
           color: white !important;
         }
-      
-        .diy-btn{ 
-          background-color:#cb94ff !important;
+
+        .diy-btn {
+          background-color: #cb94ff !important;
           border-radius: 25px !important;
           padding: 12px !important;
           border-color: brown !important;
@@ -140,25 +142,20 @@ const Nav = (props) => {
 
         .menu {
           position: absolute;
-          top: 250px !important;
+          bottom: 0;
         }
-    
-.login {
-  background-color:brown;
-  margin-left: 400px;
-  border-radius: 25px !important;
-  padding: 10px !important;
 
-}
+        .login {
+          background-color: brown;
+          border-radius: 25px !important;
+          padding: 10px !important;
+        }
 
-.loggedin, .loggedin-p {
-  display:inline-block;
-  
-}
-        
-    
-
-     `}</style>
+        .loggedin,
+        .loggedin-p {
+          display: inline-block;
+        }
+      `}</style>
     </>
   );
 };

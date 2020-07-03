@@ -22,7 +22,7 @@ export default function Home() {
       <style jsx global>{`
         @font-face {
           font-family: FinkHeavy;
-          src: url('font/FinkHeavy.ttf') format('truetype');
+          src: url(fonts/FinkHeavy.otf) format('opentype');
         }
         .article-header {
           background-color: #55a3e3;

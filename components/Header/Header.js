@@ -11,6 +11,10 @@ export default function Header() {
           width: 100vw;
           align-items: center;
         }
+
+        section {
+          position: relative;
+        }
       `}</style>
     </div>
   );

@@ -54,7 +54,7 @@ function Articles() {
         <style jsx global>{`
           @font-face {
             font-family: Humming;
-            src: url('font/Humming.otf') format('opentype');
+            src: url('fonts/Humming.otf') format('opentype');
           }
 
           .ui.container {
