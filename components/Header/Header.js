@@ -1,13 +1,15 @@
+import Nav from '../../components/Nav/Nav';
 export default function Header() {
   return (
-    <div>
-      <img className="header acheader" src="images/acheader.jpg" alt="Header" />
-
+    <div className="header">
+      <section>
+        <img className="header acheader" src="images/nav.jpg" alt="Header" />
+        <Nav />
+      </section>
       <style jsx>{`
         .header {
-          width: 100%;
+          width: 100vw;
           align-items: center;
-          margin-top: -150px;
         }
       `}</style>
     </div>

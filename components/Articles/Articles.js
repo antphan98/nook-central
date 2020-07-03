@@ -57,10 +57,6 @@ function Articles() {
             src: url('font/Humming.otf') format('opentype');
           }
 
-          * {
-            font-family: Humming;
-          }
-
           .ui.container {
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -77,7 +73,9 @@ function Articles() {
             background: beige;
           }
 
-          .ui.header {
+          .ui.header,
+          span,
+          p {
             font-family: Humming;
           }
         `}</style>

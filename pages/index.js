@@ -1,5 +1,5 @@
 import Header from '../components/Header/Header';
-import Nav from '../components/Nav/Nav';
+// import Nav from '../components/Nav/Nav';
 import Head from 'next/head';
 import Articles from '../components/Articles/Articles';
 
@@ -13,8 +13,6 @@ export default function Home() {
         />
       </Head>
       <Header />
-
-      <Nav />
 
       <div className="article-header">
         <h1 className="article-title">Animal Crossing News</h1>

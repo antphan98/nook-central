@@ -14,8 +14,13 @@ const Nav = (props) => {
   return (
     <>
       <Menu secondary>
-        <Menu.Item name="home" href="/" />
-        <Dropdown text="Collectibles" pointing className="link item">
+        <Menu.Item name="Home" className="home-btn" href="/" />
+
+        <Dropdown
+          text="Collectibles"
+          pointing
+          className="link item collectibles-btn"
+        >
           <Dropdown.Menu>
             <Dropdown.Header>Museum Donations</Dropdown.Header>
             <Dropdown.Item href="/art">Art</Dropdown.Item>
@@ -25,8 +30,12 @@ const Nav = (props) => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <Menu.Item name="characters" href="/characters" />
-        <Dropdown text="DIY Recipies" pointing className="link item">
+        <Menu.Item
+          name="characters"
+          href="/characters"
+          className="characters-btn"
+        />
+        <Dropdown text="DIY Recipies" pointing className="link item diy-btn">
           <Dropdown.Menu>
             <Dropdown.Header>Categories</Dropdown.Header>
             <Dropdown.Item href="/equipment">Equipment</Dropdown.Item>
@@ -36,35 +45,33 @@ const Nav = (props) => {
             <Dropdown.Item href="/tools">Tools</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Menu.Menu position="right">
-          <Menu.Item>
-            <div>
-              <p>Hi there!</p>
-              {!AuthUser ? (
-                <p>
-                  You are not signed in.{' '}
-                  <Button href={'/auth'}>Sign In/Up</Button>
-                </p>
-              ) : (
-                <div>
-                  <p>You signed in. Email: {AuthUser.email}</p>
-                  <Button
-                    onClick={async () => {
-                      try {
-                        await logout();
-                        Router.push('/');
-                      } catch (e) {
-                        console.error(e);
-                      }
-                    }}
-                  >
-                    Log out
-                  </Button>
-                </div>
-              )}
-            </div>
-          </Menu.Item>
-        </Menu.Menu>
+        <Menu.Item>
+          <div className="login">
+            {!AuthUser ? (
+              <p>
+                Greetings! Please sign in.{' '}
+                <Button href={'/auth'}>Sign In/Up</Button>
+              </p>
+            ) : (
+              <div className="loggedin">
+                <p className="loggedin-p">Welcome back {AuthUser.email}!</p>
+
+                <Button
+                  onClick={async () => {
+                    try {
+                      await logout();
+                      Router.push('/');
+                    } catch (e) {
+                      console.error(e);
+                    }
+                  }}
+                >
+                  Log out
+                </Button>
+              </div>
+            )}
+          </div>
+        </Menu.Item>
       </Menu>
       <style jsx global>{`
 
@@ -75,6 +82,81 @@ const Nav = (props) => {
         .ui.secondary.menu {
           font-family: FinkHeavy !important;
         }
+
+        .home-btn {
+          background-color:#539e0e !important;
+          border-radius: 25px !important;
+          padding: 12px !important;
+          border-color: brown!important;
+          border-style: solid !important;
+          border-width: 0 3px 3px 0 !important;
+          box-shadow: 1px 5px #888888 !important;
+          font-size: 1.5rem;
+          color: white !important;
+        }
+
+        .home-btn:hover, .collectibles-btn:hover, .characters-btn:hover, .diy-btn:hover{
+          transform: scale(0.95) !important;
+          box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important; 
+          z-index:999;
+
+        }
+
+        .collectibles-btn {
+          background-color:pink !important;
+          border-radius: 25px !important;
+          padding: 12px !important;
+          border-color: brown !important;
+          border-style: solid !important;
+          border-width: 0 3px 3px 0 !important;
+          box-shadow: 1px 5px #888888 !important;
+          font-size: 1.5rem;
+          color: white !important;
+        }
+
+        .characters-btn {
+          background-color:#f09b51 !important;
+          border-radius: 25px !important;
+          padding: 12px !important;
+          border-color: brown !important;
+          border-style: solid !important;
+          border-width: 0 3px 3px 0 !important;
+          box-shadow: 1px 5px #888888 !important;
+          font-size: 1.5rem;
+          color: white !important;
+        }
+      
+        .diy-btn{ 
+          background-color:#cb94ff !important;
+          border-radius: 25px !important;
+          padding: 12px !important;
+          border-color: brown !important;
+          border-style: solid !important;
+          border-width: 0 3px 3px 0 !important;
+          box-shadow: 1px 5px #888888 !important;
+          font-size: 1.5rem;
+          color: white !important;
+        }
+
+        .menu {
+          position: absolute;
+          top: 250px !important;
+        }
+    
+.login {
+  background-color:brown;
+  margin-left: 400px;
+  border-radius: 25px !important;
+  padding: 10px !important;
+
+}
+
+.loggedin, .loggedin-p {
+  display:inline-block;
+  
+}
+        
+    
 
      `}</style>
     </>
