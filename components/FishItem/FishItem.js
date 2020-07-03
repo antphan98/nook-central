@@ -51,15 +51,19 @@ export default (props) => {
           handleSelect(requestBody);
         }}
       >
-        <Table.Cell>{_.startCase(_.toLower(fishies.name))}</Table.Cell>
         <Table.Cell>
-          <img width="50" src={fishies.imageLink}></img>
+          <img width="65" src={fishies.imageLink}></img>
         </Table.Cell>
+        <Table.Cell>{_.startCase(_.toLower(fishies.name))}</Table.Cell>
+
         <Table.Cell>{fishies.time}</Table.Cell>
         <Table.Cell>{fishies.location}</Table.Cell>
         <Table.Cell>{fishies.shadowSize}</Table.Cell>
 
-        <Table.Cell>{fishies.price}</Table.Cell>
+        <Table.Cell>
+          <img width="20" src="images/bells-icon.png"></img>
+          &nbsp; {fishies.price}
+        </Table.Cell>
       </Table.Row>
       <style jsx global>{`
         tr:hover {

@@ -6,7 +6,6 @@ export const bugs = [
     price: 160,
     location: 'Flying',
     time: '4 AM - 7 PM',
-    months: [0, 1, 2, 3, 4, 5, 8, 9, 10, 11],
     jan: 1,
     feb: 1,
     mar: 1,
