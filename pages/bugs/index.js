@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import BugItem from '../../components/BugItem/BugItem';
 import Header from '../../components/Header/Header';
-import { Table, Container, Input } from 'semantic-ui-react';
+import { Table, Container, Input, Button } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import { bugs } from '../../data/bugs';
 import fetch from 'node-fetch';
@@ -61,7 +61,7 @@ export default function bug() {
           onChange={handleChange}
         />
 
-        <button
+        <Button
           className="filter-month-btn"
           onClick={() => {
             const currentMonth = new Date().getMonth();
@@ -89,16 +89,16 @@ export default function bug() {
           }}
         >
           Bugs Available This Month
-        </button>
+        </Button>
 
-        <button
+        <Button
           className="show-all-btn"
           onClick={() => {
             setBugList(bugs);
           }}
         >
           Show All Bugs
-        </button>
+        </Button>
       </div>
       <Container>
         <Table fixed>
@@ -155,8 +155,8 @@ export default function bug() {
           text-shadow: 3px 3px #9c6858;
         }
 
-        .filter-month-btn,
-        .show-all-btn {
+        .ui.button.filter-month-btn,
+        .ui.button.show-all-btn {
           background-color: #e6dc81;
           border-radius: 25px;
           padding: 10px;
@@ -170,8 +170,8 @@ export default function bug() {
           margin: 20px;
         }
 
-        .filter-month-btn:hover,
-        .show-all-btn:hover {
+        .ui.button.filter-month-btn:hover,
+        .ui.button.show-all-btn:hover {
           transform: scale(0.95) !important;
           box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
           z-index: 999;
