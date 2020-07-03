@@ -51,11 +51,16 @@ export default (props) => {
           handleSelect(requestBody);
         }}
       >
-        <Table.Cell>{_.startCase(_.toLower(fossil.name))}</Table.Cell>
         <Table.Cell>
-          <img width="50" src={fossil.imageLink}></img>
+          <img width="80" src={fossil.imageLink}></img>
         </Table.Cell>
-        <Table.Cell>{fossil.price}</Table.Cell>
+        <Table.Cell>{_.startCase(_.toLower(fossil.name))}</Table.Cell>
+
+        <Table.Cell>
+          {' '}
+          <img width="20" src="images/bells-icon.png"></img>
+          &nbsp; {fossil.price}
+        </Table.Cell>
       </Table.Row>
       <style jsx global>{`
         tr:hover {
@@ -63,8 +68,16 @@ export default (props) => {
         }
 
         .is-saved {
-          background-color: pink;
+          background-image: url(images/wood.jpg);
         }
+        .ui.table tr td,
+        .ui.table {
+          border-top: none;
+          border: none;
+        }
+
+        .ui.table {
+          border-radius: 20px;
       `}</style>
     </>
   );

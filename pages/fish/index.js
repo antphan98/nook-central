@@ -157,6 +157,9 @@ export default function fishies() {
           letter-spacing: 1px;
           font-size: 3rem;
           text-shadow: 3px 3px #9c6858;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         .search {
           border-radius: 25px;

@@ -50,7 +50,12 @@ export default function bug() {
     <div className="container">
       <Header />
       <div className="bugs-header">
-        <h1 className="bugs-title">Bugs</h1>
+        <h1 className="bugs-title">
+          {' '}
+          <img width="50" className="bug-img" src="images/bug.png"></img>
+          &nbsp; Bugs &nbsp;
+          <img width="50" className="bug-img" src="images/bug.png"></img>
+        </h1>
       </div>
       <div className="bug-search">
         <Input
@@ -153,6 +158,9 @@ export default function bug() {
           letter-spacing: 1px;
           font-size: 3rem;
           text-shadow: 3px 3px #9c6858;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
 
         .ui.button.filter-month-btn,
