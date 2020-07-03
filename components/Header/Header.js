@@ -23,6 +23,7 @@ export default function Header() {
           position: relative;
         }
         .nookcentral {
+          width: 70%;
           position: absolute;
           bottom: 30%;
           margin-left: 5%;

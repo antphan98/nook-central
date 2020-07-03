@@ -50,13 +50,16 @@ const Nav = (props) => {
             {!AuthUser ? (
               <p>
                 Greetings! Please sign in.{' '}
-                <Button href={'/auth'}>Sign In/Up</Button>
+                <Button className="loginbutton" href={'/auth'}>
+                  Sign In/Up
+                </Button>
               </p>
             ) : (
               <div className="loggedin">
                 <p className="loggedin-p">Welcome back {AuthUser.email}!</p>
 
                 <Button
+                  className="loginbutton"
                   onClick={async () => {
                     try {
                       await logout();
@@ -86,7 +89,7 @@ const Nav = (props) => {
         .ui.secondary.menu .item.home-btn {
           background-color: #539e0e;
           border-radius: 25px;
-          padding: 12px !important;
+          padding: 12px;
           border-color: brown;
           border-style: solid;
           border-width: 0 3px 3px 0;
@@ -147,15 +150,30 @@ const Nav = (props) => {
           color: white !important;
         }
 
-        .menu {
+        .ui.button.loginbutton {
+          background-color: #e6dc81;
+          border-radius: 25px;
+          padding: 10px;
+          border-color: brown;
+          border-style: solid;
+          border-width: 0 3px 3px 0;
+          box-shadow: 1px 5px #888888;
+          font-size: 1.5rem;
+          color: white;
+          margin-left: 5px;
+        }
+
+        .ui.secondary.menu {
           position: absolute;
           bottom: 0;
+          margin-left: 15px;
         }
 
         .login {
-          background-color: brown;
-          border-radius: 25px !important;
-          padding: 10px !important;
+          background-color: #cc9067;
+          border-radius: 25px;
+          padding: 10px;
+          color: white;
         }
 
         .loggedin,
