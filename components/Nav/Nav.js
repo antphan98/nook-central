@@ -85,20 +85,27 @@ const Nav = (props) => {
 
         .ui.secondary.menu .item.home-btn {
           background-color: #539e0e;
-          border-radius: 25px !important;
+          border-radius: 25px;
           padding: 12px !important;
-          border-color: brown !important;
-          border-style: solid !important;
-          border-width: 0 3px 3px 0 !important;
-          box-shadow: 1px 5px #888888 !important;
+          border-color: brown;
+          border-style: solid;
+          border-width: 0 3px 3px 0;
+          box-shadow: 1px 5px #888888;
           font-size: 1.5rem;
-          color: white !important;
+          color: white;
         }
 
-        .home-btn:hover,
         .collectibles-btn:hover,
         .characters-btn:hover,
         .diy-btn:hover {
+          transform: scale(0.95) !important;
+          box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
+          z-index: 999;
+        }
+
+        .ui.secondary.menu .item.home-btn:hover {
+          background-color: #539e0e;
+          color: white;
           transform: scale(0.95) !important;
           box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
           z-index: 999;
@@ -154,6 +161,9 @@ const Nav = (props) => {
         .loggedin,
         .loggedin-p {
           display: inline-block;
+        }
+        .ui.menu .ui.dropdown .menu {
+          background-color: white;
         }
       `}</style>
     </>

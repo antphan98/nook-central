@@ -17,7 +17,7 @@ const BugItem = (props) => {
         onClick={async () => {
           const AuthUser = get(AuthUserInfo, 'AuthUser', null);
           {
-            !AuthUser ? alert('hlaksdlasd') : null;
+            !AuthUser ? alert('Please login to track your progress!') : null;
           }
 
           const response = await fetch('/api/user-progress');
