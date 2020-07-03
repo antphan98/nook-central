@@ -31,7 +31,7 @@ const Nav = (props) => {
         </Dropdown>
 
         <Menu.Item
-          name="characters"
+          name="villagers"
           href="/characters"
           className="characters-btn"
         />
