@@ -2,7 +2,8 @@ export const houseware = [
   {
     name: 'Acoustic guitar',
     imageLink:
-      'https://vignette.wikia.nocookie.net/animalcrossing/images/7/72/NH-Furniture-Acoustic_guitar.png/revision/latest/?cb=20200326013706',
+      'https://vignette.wikia.nocookie.net/animalcrossing/images/8/8c/NH-DIY-Furniture-Acoustic_guitar.png/revision/latest?cb=20200326013706',
+
     materials: ['8x softwood', '3x iron nugget'],
     materialsImageLink: [
       'https://vignette.wikia.nocookie.net/animalcrossing/images/f/f2/NH-softwood-icon.png/revision/latest/scale-to-width-down/18?cb=20200414010926',

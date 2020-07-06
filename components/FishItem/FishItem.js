@@ -52,7 +52,7 @@ export default (props) => {
         }}
       >
         <Table.Cell>
-          <img width="65" src={fishies.imageLink}></img>
+          <img width="70 src={fishies.imageLink}></img>
         </Table.Cell>
         <Table.Cell>{_.startCase(_.toLower(fishies.name))}</Table.Cell>
 

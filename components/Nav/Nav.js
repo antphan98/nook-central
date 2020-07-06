@@ -25,6 +25,7 @@ const Nav = (props) => {
             <Dropdown.Header>Museum Donations</Dropdown.Header>
             <Dropdown.Item href="/art">Art</Dropdown.Item>
             <Dropdown.Item href="/bugs">Bugs</Dropdown.Item>
+            <Dropdown.Item href="/deepsea">Deep Sea Creatures</Dropdown.Item>
             <Dropdown.Item href="/fish">Fish</Dropdown.Item>
             <Dropdown.Item href="/fossils">Fossils</Dropdown.Item>
           </Dropdown.Menu>
@@ -32,7 +33,7 @@ const Nav = (props) => {
 
         <Menu.Item
           name="villagers"
-          href="/characters"
+          href="/villagers"
           className="characters-btn"
         />
         <Dropdown text="DIY Recipies" pointing className="link item diy-btn">

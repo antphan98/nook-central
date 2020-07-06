@@ -62,7 +62,7 @@ const BugItem = (props) => {
         }}
       >
         <Table.Cell>
-          <img width="65" src={bug.imageLink}></img>
+          <img width="70" src={bug.imageLink}></img>
         </Table.Cell>
         <Table.Cell>{bug.name}</Table.Cell>
 
