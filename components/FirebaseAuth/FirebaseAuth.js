@@ -65,7 +65,7 @@ const FirebaseAuth = () => {
           input.firebaseui-input,
           input.firebaseui-input-invalid {
             font-family: Humming !important;
-            line-height: 0;
+            line-height: 2px;
           }
 
           .mdl-textfield__label {

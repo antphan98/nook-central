@@ -38,7 +38,6 @@ const ArtItem = (props) => {
           } else {
             requestBody = { art: [arts.name] };
           }
-          console.log(requestBody);
 
           fetch('/api/user-progress', {
             method: 'POST',

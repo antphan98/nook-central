@@ -7,8 +7,6 @@ import withAuthUserInfo from '../../utils/pageWrappers/withAuthUserInfo';
 
 const BugItem = (props) => {
   const { bug, isSavedToProgress, handleSelect, AuthUserInfo } = props;
-  console.log(bug);
-  console.log(isSavedToProgress);
 
   return (
     <>
@@ -43,7 +41,6 @@ const BugItem = (props) => {
           } else {
             requestBody = { bugs: [bug.name] };
           }
-          console.log(requestBody);
 
           fetch('/api/user-progress', {
             method: 'POST',
