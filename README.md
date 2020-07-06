@@ -1,5 +1,7 @@
 # Nook Central (An Animal Crossing: New Horizons Website)
 
+[! Home page](https://antphan98.github.com/images/readme/home.png)
+
 ## Introduction
 
 **Deployed Link**: https://nook-central.herokuapp.com/
@@ -21,6 +23,7 @@ The idea of Nook Central is for users to be able to keep check of their progress
 
 ## Technologies Used
 
+- HTML, CSS, JavaScript
 - Next.js
 - React
 - Firebase/Firestore
@@ -28,8 +31,8 @@ The idea of Nook Central is for users to be able to keep check of their progress
 - Node Fetch
 - GameSpot API
 
-## Deploy on ZEIT Now
+## Future Development
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Display what user has collected only (with a button)
+- Add turnip calculator page
+- Add K.K. music page
