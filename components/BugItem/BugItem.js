@@ -91,6 +91,12 @@ const BugItem = (props) => {
         .ui.table {
           border-radius: 20px;
         }
+        @media only screen and (max-width: 768px) {
+          .ui.table tr {
+            text-align: center;
+          }
+          }
+        }
       `}</style>
     </>
   );

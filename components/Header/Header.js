@@ -3,9 +3,11 @@ export default function Header() {
   return (
     <div className="header">
       <section>
-        <h1 className="nookcentral">Nook Central</h1>
+        <div className="title">
+          <h1 className="nookcentral">Nook Central</h1>
 
-        <img className="header acheader" src="images/nav.jpg" alt="Header" />
+          <img className="header acheader" src="images/nav.jpg" alt="Header" />
+        </div>
         <Nav />
       </section>
 
@@ -33,6 +35,59 @@ export default function Header() {
           text-shadow: -5px -5px 0 #cc9067, 0 -5px 0 #cc9067, 5px -5px 0 #cc9067,
             5px 0 0 #cc9067, 5px 5px 0 #cc9067, 0 5px 0 #cc9067,
             -5px 5px 0 #cc9067, -5px 0 0 #cc9067;
+        }
+
+        @media only screen and (max-width: 600px) {
+          .nookcentral {
+            font-size: 3.5rem;
+            display: inline;
+            bottom: 80%;
+            width: 80%;
+            margin-left: 50px;
+          }
+        }
+        @media only screen and (min-width: 600px) {
+          .nookcentral {
+            font-size: 5rem;
+            display: inline;
+            bottom: 75%;
+            width: 80%;
+            margin-left: 50px;
+          }
+        }
+
+        @media only screen and (min-width: 768px) {
+          .nookcentral {
+            font-size: 6rem;
+            display: inline;
+            bottom: 70%;
+            width: 80%;
+          }
+        }
+
+        @media only screen and (min-width: 992px) {
+          .nookcentral {
+            font-size: 8rem;
+            display: inline;
+            bottom: 30%;
+            width: 80%;
+          }
+        }
+        @media only screen and (min-width: 1024px) {
+          .nookcentral {
+            font-size: 8rem;
+            display: inline;
+            bottom: 30%;
+            width: 80%;
+          }
+        }
+        @media only screen and (min-width: 1200px) {
+          .nookcentral {
+            font-size: 10rem;
+            display: inline;
+            bottom: 30%;
+            width: 80%;
+          }
         }
       `}</style>
     </div>

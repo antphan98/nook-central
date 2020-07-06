@@ -177,6 +177,19 @@ const Nav = (props) => {
         .ui.menu .ui.dropdown .menu {
           background-color: white;
         }
+
+        @media only screen and (max-width: 768px) {
+          .ui.secondary.menu {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 0;
+          }
+
+          .ui.secondary.menu .item {
+            margin: 5px;
+          }
+        }
       `}</style>
     </>
   );
