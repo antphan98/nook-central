@@ -22,7 +22,7 @@ export default function fishies() {
 
   useEffect(() => {
     const results = fish.filter((fishies) =>
-      fishies.name.toLowerCase().includes(searchFish)
+      fishies.name.toUpperCase().includes(searchFish.toUpperCase())
     );
     setFishList(results);
   }, [searchFish]);

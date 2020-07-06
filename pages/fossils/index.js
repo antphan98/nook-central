@@ -23,7 +23,7 @@ export default function fossil() {
 
   useEffect(() => {
     const results = fossils.filter((fossil) =>
-      fossil.name.toLowerCase().includes(searchFossil)
+      fossil.name.toUpperCase().includes(searchFossil.toUpperCase())
     );
     setFossilList(results);
   }, [searchFossil]);

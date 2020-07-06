@@ -19,7 +19,7 @@ export default function character() {
 
   useEffect(() => {
     const results = characters.filter((character) =>
-      character.name.toLowerCase().includes(searchChar)
+      character.name.toUpperCase().includes(searchChar.toUpperCase())
     );
     setCharList(results);
   }, [searchChar]);

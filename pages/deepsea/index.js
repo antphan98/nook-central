@@ -21,7 +21,7 @@ export default function deepseas() {
 
   useEffect(() => {
     const results = deepsea.filter((deepseas) =>
-      deepseas.name.toLowerCase().includes(searchDeepSea)
+      deepseas.name.toUpperCase().includes(searchDeepSea.toUpperCase())
     );
     setDeepSeaList(results);
   }, [searchDeepSea]);

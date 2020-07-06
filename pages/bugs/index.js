@@ -21,7 +21,7 @@ export default function bug() {
 
   useEffect(() => {
     const results = bugs.filter((bug) =>
-      bug.name.toLowerCase().includes(searchBug)
+      bug.name.toUpperCase().includes(searchBug.toUpperCase())
     );
     setBugList(results);
   }, [searchBug]);

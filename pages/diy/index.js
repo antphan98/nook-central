@@ -19,7 +19,7 @@ export default function diys() {
 
   useEffect(() => {
     const results = diy.filter((diys) =>
-      diys.Name.toLowerCase().includes(searchDiy)
+      diys.Name.toUpperCase().includes(searchDiy.toUpperCase())
     );
     setDiyList(results);
   }, [searchDiy]);
@@ -30,9 +30,9 @@ export default function diys() {
 
       <div className="diy-header">
         <h1 className="diy-title">
-          <img width="50" className="villager" src="images/sherb.png"></img>
+          <img width="50" className="villager" src="images/diy.png"></img>
           &nbsp; DIY Recipes &nbsp;
-          <img width="50" className="villager" src="images/sherb.png"></img>
+          <img width="50" className="villager" src="images/diy.png"></img>
         </h1>
       </div>
       <div className="char-search">

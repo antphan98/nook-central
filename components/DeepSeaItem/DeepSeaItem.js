@@ -62,7 +62,7 @@ export default (props) => {
         <Table.Cell>
           {' '}
           <img width="20" src="images/bells-icon.png"></img>
-          {deepseas.price}
+          &nbsp; {deepseas.price}
         </Table.Cell>
       </Table.Row>
       <style jsx global>{`

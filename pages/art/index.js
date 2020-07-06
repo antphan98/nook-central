@@ -22,7 +22,7 @@ export default function arts() {
 
   useEffect(() => {
     const results = art.filter((arts) =>
-      arts.name.toLowerCase().includes(searchArt)
+      arts.name.toUpperCase().includes(searchArt.toUpperCase())
     );
     setArtList(results);
   }, [searchArt]);
