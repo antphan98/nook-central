@@ -1,20 +1,23 @@
-# Nook Central (An Animal Crossing New Horizons Website)
+# Nook Central (An Animal Crossing: New Horizons Website)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+## Introduction
 
-## Getting Started
+**Deployed Link**: https://nook-central.herokuapp.com/
 
-First, run the development server:
+The idea of Nook Central is for users to be able to keep check of their progress in collecting a number of things. Forgot what you still need to catch before the month ends? This website will help you keep track! All you need to do is create an account and start collecting!
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Site Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ACNH news from GameSpot articles
+- Villagers list
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Collections
+- Art
+- Bugs
+- Deep Sea Creatures
+- DIY Recipes
+- Fish
+- Fossils
 
 ## Technologies Used
 
