@@ -19,15 +19,20 @@ export default ({ characters }) => (
     </Table.Row>
 
     <style jsx global>{`
+      .ui.table tr td,
+      .ui.table {
+        border-top: none;
+        border: none;
+      }
 
- .ui.table tr td,
- .ui.table {
-   border-top: none;
-   border: none;
- }
-
- .ui.table {
-   border-radius: 20px;
-`}</style>
+      .ui.table {
+        border-radius: 20px;
+      }
+      @media only screen and (max-width: 768px) {
+        .ui.table tr {
+          text-align: center;
+        }
+      }
+    `}</style>
   </>
 );

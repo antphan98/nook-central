@@ -89,12 +89,25 @@ export default (props) => {
           border-radius: 20px;
         }
 
+        tr {
+          -moz-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          -webkit-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+        }
+
         .material1,
         .material2,
         .material3,
         .material4 {
           display: flex;
           flex-direction: column;
+        }
+
+        @media only screen and (max-width: 768px) {
+          .ui.table tr {
+            text-align: center;
+          }
         }
       `}</style>
     </>

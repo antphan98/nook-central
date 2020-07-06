@@ -190,7 +190,6 @@ export default function diys() {
         .diy-title {
           color: white;
           font-family: FinkHeavy;
-          letter-spacing: 1px;
           font-size: 3rem;
           text-shadow: 3px 3px #9c6858;
           display: flex;

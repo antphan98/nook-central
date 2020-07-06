@@ -53,7 +53,7 @@ export default function deepseas() {
         <h1 className="deepsea-title">
           {' '}
           <img width="50" className="pascal-img" src="images/pascal.png"></img>
-          &nbsp; Deep Sea Creatures &nbsp;
+          &nbsp; Deep Sea &nbsp;
           <img width="50" className="pascal-img" src="images/pascal.png"></img>
         </h1>
       </div>
@@ -155,7 +155,6 @@ export default function deepseas() {
         .deepsea-title {
           color: white;
           font-family: FinkHeavy;
-          letter-spacing: 1px;
           font-size: 3rem;
           text-shadow: 3px 3px #9c6858;
           display: flex;

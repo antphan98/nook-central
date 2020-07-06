@@ -73,6 +73,12 @@ export default (props) => {
         .is-saved {
           background-image: url(images/wood.jpg);
         }
+        tr {
+          -moz-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          -webkit-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+        }
 
         .ui.table tr td,
         .ui.table {
@@ -82,6 +88,11 @@ export default (props) => {
 
         .ui.table {
           border-radius: 20px;
+        }
+        @media only screen and (max-width: 768px) {
+          .ui.table tr {
+            text-align: center;
+          }
         }
       `}</style>
     </>

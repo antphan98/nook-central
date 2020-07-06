@@ -44,6 +44,9 @@ export default function Header() {
             bottom: 80%;
             width: 80%;
             margin-left: 50px;
+            text-shadow: -2px -2px 0 #cc9067, 0 -2px 0 #cc9067,
+              2px -2px 0 #cc9067, 2px 0 0 #cc9067, 2px 2px 0 #cc9067,
+              0 2px 0 #cc9067, -2px 2px 0 #cc9067, -2px 0 0 #cc9067;
           }
         }
         @media only screen and (min-width: 600px) {
@@ -53,6 +56,9 @@ export default function Header() {
             bottom: 75%;
             width: 80%;
             margin-left: 50px;
+            text-shadow: -2px -2px 0 #cc9067, 0 -2px 0 #cc9067,
+              2px -2px 0 #cc9067, 2px 0 0 #cc9067, 2px 2px 0 #cc9067,
+              0 2px 0 #cc9067, -2px 2px 0 #cc9067, -2px 0 0 #cc9067;
           }
         }
 
@@ -62,6 +68,9 @@ export default function Header() {
             display: inline;
             bottom: 70%;
             width: 80%;
+            text-shadow: -3px -3px 0 #cc9067, 0 -3px 0 #cc9067,
+              3px -3px 0 #cc9067, 3px 0 0 #cc9067, 3px 3px 0 #cc9067,
+              0 3px 0 #cc9067, -3px 3px 0 #cc9067, -3px 0 0 #cc9067;
           }
         }
 
@@ -87,6 +96,9 @@ export default function Header() {
             display: inline;
             bottom: 30%;
             width: 80%;
+            text-shadow: -5px -5px 0 #cc9067, 0 -5px 0 #cc9067,
+              5px -5px 0 #cc9067, 5px 0 0 #cc9067, 5px 5px 0 #cc9067,
+              0 5px 0 #cc9067, -5px 5px 0 #cc9067, -5px 0 0 #cc9067;
           }
         }
       `}</style>

@@ -33,15 +33,13 @@ function Articles() {
           {results.map((result) => (
             <Grid key={result} href={result.site_detail_url}>
               <Grid.Row>
-                <Grid.Column width={3}>
+                <Grid.Column width={3} className="articleimg">
                   <Image src={result.image.original} />
                 </Grid.Column>
 
-                <Grid.Column width={13}>
+                <Grid.Column width={13} className="articledesc">
                   <Header>{result.title}</Header>
-                  <span style={{ color: 'black' }}>
-                    Written by: {result.authors}
-                  </span>
+                  <p style={{ color: 'black' }}>Written by: {result.authors}</p>
                   <p style={{ color: 'black' }}>
                     Publish date: {result.publish_date}
                   </p>
@@ -74,9 +72,19 @@ function Articles() {
           }
 
           .ui.header,
-          span,
           p {
             font-family: Humming;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .ui.grid > .row > [class*='thirteen wide'].column.articledesc {
+              width: 100% !important;
+              text-align: center;
+            }
+            .ui.grid > .row > [class*='three wide'].column.articleimg {
+              width: 100% !important;
+              margin-bottom: 20px;
+            }
           }
         `}</style>
       </div>

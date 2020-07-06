@@ -42,15 +42,17 @@ const Nav = (props) => {
         <Menu.Item>
           <div className="login">
             {!AuthUser ? (
-              <p>
+              <span>
                 Greetings! Please sign in.{' '}
                 <Button className="loginbutton" href={'/auth'}>
                   Sign In/Up
                 </Button>
-              </p>
+              </span>
             ) : (
               <div className="loggedin">
-                <p className="loggedin-p">Welcome back {AuthUser.email}!</p>
+                <span className="loggedin-p">
+                  Welcome back {AuthUser.email}!
+                </span>
 
                 <Button
                   className="loginbutton"
@@ -63,7 +65,7 @@ const Nav = (props) => {
                     }
                   }}
                 >
-                  Log out
+                  Log Out
                 </Button>
               </div>
             )}
@@ -94,6 +96,7 @@ const Nav = (props) => {
 
         .collectibles-btn:hover,
         .characters-btn:hover,
+        .loginbutton:hover,
         .diy-btn:hover {
           transform: scale(0.95) !important;
           box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
@@ -155,6 +158,7 @@ const Nav = (props) => {
           font-size: 1.5rem;
           color: white;
           margin-left: 5px;
+          font-family: FinkHeavy;
         }
 
         .ui.secondary.menu {
@@ -168,11 +172,13 @@ const Nav = (props) => {
           border-radius: 25px;
           padding: 10px;
           color: white;
+          text-align: center;
         }
 
         .loggedin,
         .loggedin-p {
           display: inline-block;
+          text-align: center;
         }
         .ui.menu .ui.dropdown .menu {
           background-color: white;

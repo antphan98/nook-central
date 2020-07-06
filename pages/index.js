@@ -17,7 +17,7 @@ export default function Home() {
       <div className="article-header">
         <h1 className="article-title">
           <img src="images/nooks.png" width="50"></img>
-          &nbsp; Animal Crossing News &nbsp;
+          &nbsp; Daily News &nbsp;
           <img src="images/nooks.png" width="50"></img>
         </h1>
       </div>
@@ -41,7 +41,6 @@ export default function Home() {
         .article-title {
           color: white;
           font-family: FinkHeavy;
-          letter-spacing: 1px;
           font-size: 3rem;
           text-shadow: 3px 3px #9c6858;
           display: flex;
