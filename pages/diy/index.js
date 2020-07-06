@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import { Container, Table, Input, Button, Dropdown } from 'semantic-ui-react';
 import { diy } from '../../data/diy';
 import { useState, useEffect } from 'react';
+import fetch from 'node-fetch';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -11,6 +12,7 @@ export default function diys() {
   const { error } = useSWR('/api/diy', fetcher);
   if (error) return <div>Failed to load</div>;
 
+  const [userProgress, setUserProgress] = useState([]);
   const [diyList, setDiyList] = useState([]);
   const [searchDiy, setSearchDiy] = useState('');
   const handleChange = (e) => {
@@ -29,6 +31,26 @@ export default function diys() {
       return diys.Category === Category;
     });
     setDiyList(filtered);
+  };
+
+  useEffect(() => {
+    fetch('/api/user-progress')
+      .then((results) => results.json())
+      .then((data) => {
+        setUserProgress(data.data);
+      });
+  }, []);
+
+  const isSavedToProgress = (diyName) => {
+    let isSaved = false;
+    userProgress &&
+      userProgress.diy &&
+      userProgress.diy.forEach((diys) => {
+        if (diyName === diys) {
+          isSaved = true;
+        }
+      });
+    return isSaved;
   };
 
   return (
@@ -116,7 +138,15 @@ export default function diys() {
       <Container>
         <Table fixed>
           <Table.Body>
-            {diyList && diyList.map((diy, i) => <DiyItem key={i} diy={diy} />)}
+            {diyList &&
+              diyList.map((diys, i) => (
+                <DiyItem
+                  key={i}
+                  diys={diys}
+                  isSavedToProgress={isSavedToProgress(diys.Name)}
+                  handleSelect={setUserProgress}
+                />
+              ))}
           </Table.Body>
         </Table>
       </Container>
