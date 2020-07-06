@@ -1,6 +1,10 @@
 # Nook Central (An Animal Crossing: New Horizons Website)
 
-![Home page](images/readme/home.png)
+![Home page](public/images/readme/home.png) 
+![Sign In page](public/images/readme/signin.png)
+![Bugs page](public/images/readme/bugs.png)
+![Villager page](public/images/readme/villagers.png)
+![Diy page](public/images/readme/diy.png)
 
 ## Introduction
 
