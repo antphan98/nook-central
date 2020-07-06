@@ -1,13 +1,21 @@
 import { Table } from 'semantic-ui-react';
 import fetch from 'node-fetch';
+import { get } from 'lodash/object';
+import PropTypes from 'prop-types';
+import withAuthUser from '../../utils/pageWrappers/withAuthUser';
+import withAuthUserInfo from '../../utils/pageWrappers/withAuthUserInfo';
 
-export default (props) => {
-  const { deepseas, isSavedToProgress, handleSelect } = props;
+const DeepSeaItem = (props) => {
+  const { deepseas, isSavedToProgress, handleSelect, AuthUserInfo } = props;
   return (
     <>
       <Table.Row
         className={isSavedToProgress ? 'is-saved' : null}
         onClick={async () => {
+          const AuthUser = get(AuthUserInfo, 'AuthUser', null);
+          {
+            !AuthUser ? alert('Please sign in to start collecting!') : null;
+          }
           const response = await fetch('/api/user-progress');
           const userProgress = await response.json();
           let requestBody;
@@ -98,3 +106,52 @@ export default (props) => {
     </>
   );
 };
+
+const mockFetchData = async (userId) => ({
+  user: {
+    ...(userId && {
+      id: userId,
+    }),
+  },
+});
+
+DeepSeaItem.getInitialProps = async (ctx) => {
+  // Get the AuthUserInfo object. This is set in `withAuthUser.js`.
+  // The AuthUserInfo object is available on both the server and client.
+  const AuthUserInfo = get(ctx, 'myCustomData.AuthUserInfo', null);
+  const AuthUser = get(AuthUserInfo, 'AuthUser', null);
+
+  // You can also get the token (e.g., to authorize a request when fetching data)
+  // const AuthUserToken = get(AuthUserInfo, 'token', null)
+
+  // You can fetch data here.
+  const data = await mockFetchData(get(AuthUser, 'id'));
+
+  return {
+    data,
+  };
+};
+
+DeepSeaItem.displayName = 'DeepSeaItem';
+
+DeepSeaItem.propTypes = {
+  AuthUserInfo: PropTypes.shape({
+    AuthUser: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      emailVerified: PropTypes.bool.isRequired,
+    }),
+    token: PropTypes.string,
+  }),
+  data: PropTypes.shape({
+    user: PropTypes.shape({
+      id: PropTypes.string,
+    }).isRequired,
+  }),
+};
+
+DeepSeaItem.defaultProps = {
+  AuthUserInfo: null,
+};
+
+export default withAuthUser(withAuthUserInfo(DeepSeaItem));
