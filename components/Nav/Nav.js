@@ -33,19 +33,12 @@ const Nav = (props) => {
 
         <Menu.Item
           name="villagers"
-          href="/villagers"
+          href="/characters"
           className="characters-btn"
         />
-        <Dropdown text="DIY Recipies" pointing className="link item diy-btn">
-          <Dropdown.Menu>
-            <Dropdown.Header>Categories</Dropdown.Header>
-            <Dropdown.Item href="/equipment">Equipment</Dropdown.Item>
-            <Dropdown.Item href="/houseware">Houseware</Dropdown.Item>
-            <Dropdown.Item href="/misc">Miscellaneous</Dropdown.Item>
-            <Dropdown.Item href="/others">Others</Dropdown.Item>
-            <Dropdown.Item href="/tools">Tools</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+
+        <Menu.Item name="DIY Recipes" href="/diy" className="diy-btn" />
+
         <Menu.Item>
           <div className="login">
             {!AuthUser ? (
