@@ -1,6 +1,6 @@
 # Nook Central (An Animal Crossing: New Horizons Website)
 
-![Home page](https://antphan98.github.com/ac/public/images/readme/home.png)
+![Home page](/images/readme/home.png)
 
 ## Introduction
 
