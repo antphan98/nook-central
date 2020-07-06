@@ -19,7 +19,7 @@ export default function diys() {
 
   useEffect(() => {
     const results = diy.filter((diys) =>
-      diys.toLowerCase().includes(searchDiy)
+      diys.Name.toLowerCase().includes(searchDiy)
     );
     setDiyList(results);
   }, [searchDiy]);
