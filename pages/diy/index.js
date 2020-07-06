@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import DiyItem from '../../components/DiyItem/DiyItem';
 import Header from '../../components/Header/Header';
-import { Container, Table, Input } from 'semantic-ui-react';
+import { Container, Table, Input, Button, Dropdown } from 'semantic-ui-react';
 import { diy } from '../../data/diy';
 import { useState, useEffect } from 'react';
 
@@ -24,6 +24,13 @@ export default function diys() {
     setDiyList(results);
   }, [searchDiy]);
 
+  const filterByCategory = (Category) => {
+    const filtered = diy.filter((diys) => {
+      return diys.Category === Category;
+    });
+    setDiyList(filtered);
+  };
+
   return (
     <div className="container">
       <Header />
@@ -43,6 +50,68 @@ export default function diys() {
           value={searchDiy}
           onChange={handleChange}
         />
+
+        <Dropdown item className="cat-btn" text="Fashion">
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={() => filterByCategory('Bags')}>
+              Bags
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Dresses')}>
+              Dresses
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Headwear')}>
+              Headwear
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Shoes')}>
+              Shoes
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Umbrellas')}>
+              Umbrellas
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown item className="cat-btn" text="Decorations">
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={() => filterByCategory('Fencing')}>
+              Fencing
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Floors')}>
+              Floors
+            </Dropdown.Item>
+
+            <Dropdown.Item onClick={() => filterByCategory('Housewares')}>
+              Housewares
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Miscellaneous')}>
+              Miscellaneous
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Other')}>
+              Other
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Rugs')}>
+              Rugs
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Tools')}>
+              Tools
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Wall-mounted')}>
+              Wall-mounted
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => filterByCategory('Wallpaper')}>
+              Wallpaper
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Button
+          className="all-cat-btn"
+          onClick={() => {
+            setDiyList(diy);
+          }}
+        >
+          Show All DIY
+        </Button>
       </div>
       <Container>
         <Table fixed>
@@ -115,6 +184,28 @@ export default function diys() {
           font-family: FinkHeavy;
           margin: 20px;
           background-image: url(images/wood.jpg);
+        }
+
+        .cat-btn,
+        .ui.button.all-cat-btn {
+          background-color: #e6dc81;
+          border-radius: 25px;
+          padding: 10px;
+          border-color: brown;
+          border-style: solid;
+          border-width: 0 3px 3px 0;
+          box-shadow: 1px 5px #888888;
+          font-size: 1.5rem;
+          color: white;
+          font-family: FinkHeavy;
+          margin: 20px;
+        }
+
+        .cat-btn:hover,
+        .ui.button.all-cat-btn:hover {
+          transform: scale(0.95) !important;
+          box-shadow: 1px 5px rgba(0, 0, 0, 0.24) !important;
+          z-index: 999;
         }
         .ui.input > input {
           border-radius: 20px;
