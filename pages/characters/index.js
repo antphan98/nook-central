@@ -121,6 +121,12 @@ export default function character() {
           border: none;
           font-family: Humming;
         }
+
+        @media only screen and (max-width: 320px) {
+          .villager-title {
+            font-size: 2rem;
+          }
+        }
       `}</style>
     </div>
   );

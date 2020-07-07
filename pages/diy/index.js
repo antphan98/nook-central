@@ -241,6 +241,12 @@ export default function diys() {
           border: none;
           font-family: Humming;
         }
+
+        @media only screen and (max-width: 320px) {
+          .diy-title {
+            font-size: 2rem;
+          }
+        }
       `}</style>
     </div>
   );

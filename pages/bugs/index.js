@@ -207,6 +207,11 @@ export default function bug() {
           border: none;
           font-family: Humming;
         }
+        @media only screen and (max-width: 320px) {
+          .bugs-title {
+            font-size: 2rem;
+          }
+        }
       `}</style>
     </div>
   );

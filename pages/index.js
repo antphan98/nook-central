@@ -53,6 +53,12 @@ export default function Home() {
           background-repeat: no-repeat;
           background-attachment: fixed;
         }
+
+        @media only screen and (max-width: 320px) {
+          .article-title {
+            font-size: 2rem;
+          }
+        }
       `}</style>
     </div>
   );

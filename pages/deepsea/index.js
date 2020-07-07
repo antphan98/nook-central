@@ -207,6 +207,12 @@ export default function deepseas() {
           border: none;
           font-family: Humming;
         }
+
+        @media only screen and (max-width: 320px) {
+          .deepsea-title {
+            font-size: 2rem;
+          }
+        }
       `}</style>
     </div>
   );
