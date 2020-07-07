@@ -37,7 +37,20 @@ export default function Header() {
             -5px 5px 0 #cc9067, -5px 0 0 #cc9067;
         }
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (min-width: 320px) {
+          .nookcentral {
+            font-size: 3rem;
+            display: inline;
+            bottom: 80%;
+            width: 80%;
+            margin-left: 40px;
+            text-shadow: -2px -2px 0 #cc9067, 0 -2px 0 #cc9067,
+              2px -2px 0 #cc9067, 2px 0 0 #cc9067, 2px 2px 0 #cc9067,
+              0 2px 0 #cc9067, -2px 2px 0 #cc9067, -2px 0 0 #cc9067;
+          }
+        }
+
+        @media only screen and (min-width: 600px) {
           .nookcentral {
             font-size: 3.5rem;
             display: inline;
