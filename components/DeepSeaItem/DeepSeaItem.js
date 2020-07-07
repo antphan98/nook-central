@@ -41,7 +41,6 @@ const DeepSeaItem = (props) => {
           } else {
             requestBody = { deepsea: [deepseas.name] };
           }
-          console.log(requestBody);
 
           fetch('/api/user-progress', {
             method: 'POST',

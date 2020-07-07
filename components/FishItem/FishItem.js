@@ -8,7 +8,6 @@ import withAuthUserInfo from '../../utils/pageWrappers/withAuthUserInfo';
 
 const FishItem = (props) => {
   const { fishies, isSavedToProgress, handleSelect, AuthUserInfo } = props;
-  console.log(fishies);
 
   return (
     <>
@@ -19,7 +18,6 @@ const FishItem = (props) => {
           {
             !AuthUser ? alert('Please sign in to start collecting!') : null;
           }
-          console.log(fishies);
           const response = await fetch('/api/user-progress');
           const userProgress = await response.json();
           let requestBody;
@@ -41,7 +39,6 @@ const FishItem = (props) => {
           } else {
             requestBody = { fish: [fishies.name] };
           }
-          console.log(requestBody);
 
           fetch('/api/user-progress', {
             method: 'POST',

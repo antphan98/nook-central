@@ -217,7 +217,7 @@ export default function diys() {
 
         .cat-btn,
         .ui.button.all-cat-btn {
-          background-color: #e6dc81;
+          background-color: #f7e884;
           border-radius: 25px;
           padding: 10px;
           border-color: brown;

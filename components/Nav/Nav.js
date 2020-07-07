@@ -148,7 +148,7 @@ const Nav = (props) => {
         }
 
         .ui.button.loginbutton {
-          background-color: #e6dc81;
+          background-color: #f7e884;
           border-radius: 25px;
           padding: 10px;
           border-color: brown;

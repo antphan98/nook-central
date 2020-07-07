@@ -164,7 +164,7 @@ export default function bug() {
 
         .ui.button.filter-month-btn,
         .ui.button.show-all-btn {
-          background-color: #e6dc81;
+          background-color: #f7e884;
           border-radius: 25px;
           padding: 10px;
           border-color: brown;

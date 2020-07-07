@@ -38,7 +38,6 @@ const DiyItem = (props) => {
           } else {
             requestBody = { diy: [diys.Name] };
           }
-          console.log(requestBody);
           fetch('/api/user-progress', {
             method: 'POST',
             body: JSON.stringify(requestBody),

@@ -30,7 +30,7 @@ export default function Header() {
           bottom: 30%;
           margin-left: 5%;
           font-family: FinkHeavy;
-          color: #e6dc81;
+          color: #fcef89;
           font-size: 10rem;
           text-shadow: -5px -5px 0 #cc9067, 0 -5px 0 #cc9067, 5px -5px 0 #cc9067,
             5px 0 0 #cc9067, 5px 5px 0 #cc9067, 0 5px 0 #cc9067,
